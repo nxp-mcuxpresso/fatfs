@@ -30,18 +30,6 @@ target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
 )
 endif()
 
-if(CONFIG_USE_middleware_freertos-kernel_MK64F12)
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_LIST_DIR}/source/fsl_usb_disk/fsl_usb_disk_freertos.c
-)
-endif()
-
-if(CONFIG_USE_middleware_freertos-kernel_MK66F18)
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_LIST_DIR}/source/fsl_usb_disk/fsl_usb_disk_freertos.c
-)
-endif()
-
 if(CONFIG_USE_middleware_freertos-kernel_LPC54628)
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/source/fsl_usb_disk/fsl_usb_disk_freertos.c
@@ -133,6 +121,18 @@ target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
 endif()
 
 if(CONFIG_USE_middleware_freertos-kernel_MIMXRT1015)
+target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/source/fsl_usb_disk/fsl_usb_disk_freertos.c
+)
+endif()
+
+if(CONFIG_USE_middleware_freertos-kernel_MK64F12)
+target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/source/fsl_usb_disk/fsl_usb_disk_freertos.c
+)
+endif()
+
+if(CONFIG_USE_middleware_freertos-kernel_MK66F18)
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/source/fsl_usb_disk/fsl_usb_disk_freertos.c
 )
