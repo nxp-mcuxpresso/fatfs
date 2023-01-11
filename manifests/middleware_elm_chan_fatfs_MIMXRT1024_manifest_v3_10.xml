@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_MIMXRT1024_manifest_v3_10" name="Fatfs" brief="FAT File System stack" format_version="3.10" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.10.xsd">
+  <!--Timestamp (UTC): 2023-01-09 15:34:30.688649-->
+  <!--This manifest is generated based on sdk repo commit: dcc319a0105d6a9ebec0bc625dd7aae64718cd3d-->
+  <externalDefinitions>
+    <definition extID="MIMXRT1024xxxxx"/>
+    <definition extID="core0_MIMXRT1024xxxxx"/>
+    <definition extID="armgcc"/>
+    <definition extID="middleware.sdmmc.mmc.MIMXRT1024"/>
+    <definition extID="platform.drivers.common.MIMXRT1024"/>
+    <definition extID="middleware.sdmmc.sd.MIMXRT1024"/>
+    <definition extID="middleware.usb.host.stack.MIMXRT1024"/>
+    <definition extID="middleware.usb.host_msd.MIMXRT1024"/>
+    <definition extID="middleware.baremetal.MIMXRT1024"/>
+    <definition extID="middleware.freertos-kernel.MIMXRT1024"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpressoSDK2130_middleware_elm_chan_fatfs_MIMXRT1024_manifest_v3_10" name="MCUXpressoSDK2130_middleware_elm_chan_fatfs_MIMXRT1024_manifest_v3_10" version="2.13.0"/>
+  <components>
+    <component id="middleware.fatfs.MIMXRT1024" name="fatfs" brief="FatFs" version="0.14.2" full_name="FAT File System stack" devices="MIMXRT1024xxxxx" device_cores="core0_MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+      <dependencies>
+        <any_of>
+          <all>
+            <component_dependency value="middleware.fatfs.template_ram.MIMXRT1024"/>
+            <component_dependency value="middleware.fatfs.ram.MIMXRT1024"/>
+          </all>
+          <all>
+            <component_dependency value="middleware.fatfs.template_usb.MIMXRT1024"/>
+            <component_dependency value="middleware.fatfs.usb.MIMXRT1024"/>
+          </all>
+          <all>
+            <component_dependency value="middleware.fatfs.template_mmc.MIMXRT1024"/>
+            <component_dependency value="middleware.fatfs.mmc.MIMXRT1024"/>
+          </all>
+          <all>
+            <component_dependency value="middleware.fatfs.template_sd.MIMXRT1024"/>
+            <component_dependency value="middleware.fatfs.sd.MIMXRT1024"/>
+          </all>
+        </any_of>
+      </dependencies>
+      <source relative_path="./source" project_relative_path="source" type="src">
+        <files mask="diskio.c"/>
+        <files mask="ff.c"/>
+        <files mask="ffsystem.c"/>
+        <files mask="ffunicode.c"/>
+      </source>
+      <source relative_path="./source" project_relative_path="source" type="c_include">
+        <files mask="diskio.h"/>
+        <files mask="ff.h"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" project_relative_path="." type="workspace">
+        <files mask="middleware_fatfs_MIMXRT1024.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./source" project_relative_path="source" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.mmc.MIMXRT1024" name="mmc" brief="FatFs_MMC" version="0.14.2" full_name="Fatfs MMC layer" devices="MIMXRT1024xxxxx" device_cores="core0_MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+      <dependencies>
+        <all>
+          <component_dependency value="middleware.fatfs.MIMXRT1024"/>
+          <component_dependency value="middleware.fatfs.template_mmc.MIMXRT1024"/>
+          <component_dependency value="middleware.sdmmc.mmc.MIMXRT1024"/>
+        </all>
+      </dependencies>
+      <source relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="src">
+        <files mask="fsl_mmc_disk.c"/>
+      </source>
+      <source relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include">
+        <files mask="fsl_mmc_disk.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.ram.MIMXRT1024" name="ram" brief="FatFs_RAM" version="0.14.2" full_name="Fatfs RAM layer" devices="MIMXRT1024xxxxx" device_cores="core0_MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+      <dependencies>
+        <all>
+          <component_dependency value="middleware.fatfs.MIMXRT1024"/>
+          <component_dependency value="middleware.fatfs.template_ram.MIMXRT1024"/>
+          <component_dependency value="platform.drivers.common.MIMXRT1024"/>
+        </all>
+      </dependencies>
+      <source relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="src">
+        <files mask="fsl_ram_disk.c"/>
+      </source>
+      <source relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include">
+        <files mask="fsl_ram_disk.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.sd.MIMXRT1024" name="sd" brief="FatFs_SD" version="0.14.2" full_name="Fatfs SD layer" devices="MIMXRT1024xxxxx" device_cores="core0_MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+      <dependencies>
+        <all>
+          <component_dependency value="middleware.fatfs.MIMXRT1024"/>
+          <component_dependency value="middleware.fatfs.template_sd.MIMXRT1024"/>
+          <component_dependency value="middleware.sdmmc.sd.MIMXRT1024"/>
+        </all>
+      </dependencies>
+      <source relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="src">
+        <files mask="fsl_sd_disk.c"/>
+      </source>
+      <source relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include">
+        <files mask="fsl_sd_disk.h"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" project_relative_path="." type="workspace">
+        <files mask="middleware_fatfs_sd_MIMXRT1024.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.template_mmc.MIMXRT1024" name="fatfs_mmc" brief="FatFs template MMC" version="0.14.2" full_name="FatFs template configuration for MMC disk" devices="MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/mmc" project_relative_path="./" type="c_include">
+        <files mask="ffconf.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./template/mmc" project_relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.template_nand.MIMXRT1024" name="fatfs_nand" brief="FatFs template NAND" version="0.14.2" full_name="FatFs template configuration for NAND disk" devices="MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/nand" project_relative_path="./" type="c_include">
+        <files mask="ffconf.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./template/nand" project_relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.template_ram.MIMXRT1024" name="fatfs_ram" brief="FatFs template RAM" version="0.14.2" full_name="FatFs template configuration for RAM disk" devices="MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/ram" project_relative_path="./" type="c_include">
+        <files mask="ffconf.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./template/ram" project_relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.template_sd.MIMXRT1024" name="fatfs_sd" brief="FatFs template SD" version="0.14.2" full_name="FatFs template configuration for SD disk" devices="MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/sd" project_relative_path="./" type="c_include">
+        <files mask="ffconf.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./template/sd" project_relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.template_sdspi.MIMXRT1024" name="fatfs_sdspi" brief="FatFs template SDSPI" version="0.14.2" full_name="FatFs template configuration for SDSPI disk" devices="MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/sdspi" project_relative_path="./" type="c_include">
+        <files mask="ffconf.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./template/sdspi" project_relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.template_usb.MIMXRT1024" name="fatfs_usb" brief="FatFs template USB" version="0.14.2" full_name="FatFs template configuration for USB disk" devices="MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/usb" project_relative_path="./" type="c_include">
+        <files mask="ffconf.h"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./template/usb" project_relative_path="./" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.fatfs.unused_files.MIMXRT1024" name="unused_files" brief="fatfs files unused by projects" version="0.14.2" full_name="fatfs unused" devices="MIMXRT1024xxxxx" user_visible="false" type="other" package_base_path=".././" project_base_path="fatfs">
+      <source exclude="true" relative_path="./" type="doc">
+        <files mask="ChangeLogKSDK.txt" hidden="true"/>
+        <files mask="LICENSE.txt" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./documents" project_relative_path="documents" type="doc">
+        <files mask="00index_e.html" hidden="true"/>
+        <files mask="css_e.css" hidden="true"/>
+        <files mask="updates.txt" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./documents/doc" project_relative_path="documents/doc" type="doc">
+        <files mask="appnote.html" hidden="true"/>
+        <files mask="chdir.html" hidden="true"/>
+        <files mask="chdrive.html" hidden="true"/>
+        <files mask="chmod.html" hidden="true"/>
+        <files mask="close.html" hidden="true"/>
+        <files mask="closedir.html" hidden="true"/>
+        <files mask="config.html" hidden="true"/>
+        <files mask="dinit.html" hidden="true"/>
+        <files mask="dioctl.html" hidden="true"/>
+        <files mask="dread.html" hidden="true"/>
+        <files mask="dstat.html" hidden="true"/>
+        <files mask="dwrite.html" hidden="true"/>
+        <files mask="eof.html" hidden="true"/>
+        <files mask="error.html" hidden="true"/>
+        <files mask="expand.html" hidden="true"/>
+        <files mask="fattime.html" hidden="true"/>
+        <files mask="fdisk.html" hidden="true"/>
+        <files mask="filename.html" hidden="true"/>
+        <files mask="findfirst.html" hidden="true"/>
+        <files mask="findnext.html" hidden="true"/>
+        <files mask="forward.html" hidden="true"/>
+        <files mask="getcwd.html" hidden="true"/>
+        <files mask="getfree.html" hidden="true"/>
+        <files mask="getlabel.html" hidden="true"/>
+        <files mask="gets.html" hidden="true"/>
+        <files mask="lseek.html" hidden="true"/>
+        <files mask="mkdir.html" hidden="true"/>
+        <files mask="mkfs.html" hidden="true"/>
+        <files mask="mount.html" hidden="true"/>
+        <files mask="open.html" hidden="true"/>
+        <files mask="opendir.html" hidden="true"/>
+        <files mask="printf.html" hidden="true"/>
+        <files mask="putc.html" hidden="true"/>
+        <files mask="puts.html" hidden="true"/>
+        <files mask="rc.html" hidden="true"/>
+        <files mask="read.html" hidden="true"/>
+        <files mask="readdir.html" hidden="true"/>
+        <files mask="rename.html" hidden="true"/>
+        <files mask="sdir.html" hidden="true"/>
+        <files mask="setcp.html" hidden="true"/>
+        <files mask="setlabel.html" hidden="true"/>
+        <files mask="sfatfs.html" hidden="true"/>
+        <files mask="sfile.html" hidden="true"/>
+        <files mask="sfileinfo.html" hidden="true"/>
+        <files mask="size.html" hidden="true"/>
+        <files mask="stat.html" hidden="true"/>
+        <files mask="sync.html" hidden="true"/>
+        <files mask="tell.html" hidden="true"/>
+        <files mask="truncate.html" hidden="true"/>
+        <files mask="unlink.html" hidden="true"/>
+        <files mask="utime.html" hidden="true"/>
+        <files mask="write.html" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./documents/res" project_relative_path="documents/res" type="src">
+        <files mask="app1.c" hidden="true"/>
+        <files mask="app2.c" hidden="true"/>
+        <files mask="app3.c" hidden="true"/>
+        <files mask="app4.c" hidden="true"/>
+        <files mask="app5.c" hidden="true"/>
+        <files mask="app6.c" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./documents/res" project_relative_path="documents/res" type="image">
+        <files mask="f1.png" hidden="true"/>
+        <files mask="f2.png" hidden="true"/>
+        <files mask="f3.png" hidden="true"/>
+        <files mask="f4.png" hidden="true"/>
+        <files mask="f5.png" hidden="true"/>
+        <files mask="f6.png" hidden="true"/>
+        <files mask="f7.png" hidden="true"/>
+        <files mask="funcs.png" hidden="true"/>
+        <files mask="layers.png" hidden="true"/>
+        <files mask="layers1.png" hidden="true"/>
+        <files mask="layers2.png" hidden="true"/>
+        <files mask="layers3.png" hidden="true"/>
+        <files mask="modules.png" hidden="true"/>
+        <files mask="rwtest1.png" hidden="true"/>
+        <files mask="rwtest2.png" hidden="true"/>
+        <files mask="rwtest3.png" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./documents/res" project_relative_path="documents/res" type="archive">
+        <files mask="mkfatimg.zip" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./documents/res" project_relative_path="documents/res" type="other">
+        <files mask="mkfs.xlsx" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./source" project_relative_path="source" type="doc">
+        <files mask="00history.txt" hidden="true"/>
+        <files mask="00readme.txt" hidden="true"/>
+      </source>
+      <source exclude="true" relative_path="./source" project_relative_path="source" type="c_include">
+        <files mask="ffconf_template.h" hidden="true"/>
+      </source>
+    </component>
+    <component id="middleware.fatfs.usb.MIMXRT1024" name="usb" brief="FatFs_USB" version="0.14.2" full_name="Fatfs USB layer" devices="MIMXRT1024xxxxx" device_cores="core0_MIMXRT1024xxxxx" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+      <dependencies>
+        <all>
+          <component_dependency value="middleware.fatfs.MIMXRT1024"/>
+          <component_dependency value="middleware.fatfs.template_usb.MIMXRT1024"/>
+          <component_dependency value="middleware.usb.host.stack.MIMXRT1024"/>
+          <component_dependency value="middleware.usb.host_msd.MIMXRT1024"/>
+        </all>
+      </dependencies>
+      <source relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include">
+        <files mask="fsl_usb_disk.h"/>
+      </source>
+      <source condition="middleware.baremetal.MIMXRT1024" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
+        <files mask="fsl_usb_disk_bm.c"/>
+      </source>
+      <source condition="middleware.freertos-kernel.MIMXRT1024" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
+        <files mask="fsl_usb_disk_freertos.c"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" project_relative_path="." type="workspace">
+        <files mask="middleware_fatfs_usb_MIMXRT1024.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include"/>
+      </include_paths>
+    </component>
+  </components>
+</ksdk:manifest>
