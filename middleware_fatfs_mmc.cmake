@@ -67,3 +67,4 @@ if(${MCUX_DEVICE} STREQUAL "MIMXRT595S_cm33")
 endif()
 
 include(middleware_sdmmc_mmc)
+include(middleware_fatfs)

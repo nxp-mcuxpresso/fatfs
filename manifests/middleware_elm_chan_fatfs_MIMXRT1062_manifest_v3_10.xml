@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_10" name="Fatfs" brief="FAT File System stack" format_version="3.10" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.10.xsd">
-  <!--Timestamp (UTC): 2023-01-09 15:35:18.287564-->
-  <!--This manifest is generated based on sdk repo commit: dcc319a0105d6a9ebec0bc625dd7aae64718cd3d-->
+  <!--Timestamp (UTC): 2023-03-27 10:46:25.133650-->
+  <!--This manifest is generated based on sdk repo commit: 7a3cf97dd3582e3ee8a98ede814ff1f2a45ea519-->
   <externalDefinitions>
     <definition extID="MIMXRT1062xxxxA"/>
-    <definition extID="MIMXRT1062xxxxB"/>
     <definition extID="core0_MIMXRT1062xxxxA"/>
-    <definition extID="core0_MIMXRT1062xxxxB"/>
     <definition extID="armgcc"/>
     <definition extID="middleware.sdmmc.mmc.MIMXRT1062"/>
     <definition extID="platform.drivers.common.MIMXRT1062"/>
@@ -18,7 +16,7 @@
   </externalDefinitions>
   <ksdk id="MCUXpressoSDK2130_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_10" name="MCUXpressoSDK2130_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_10" version="2.13.0"/>
   <components>
-    <component id="middleware.fatfs.MIMXRT1062" name="fatfs" brief="FatFs" version="0.14.2" full_name="FAT File System stack" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" device_cores="core0_MIMXRT1062xxxxA core0_MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.MIMXRT1062" name="fatfs" brief="FatFs" version="0.14.2" full_name="FAT File System stack" devices="MIMXRT1062xxxxA" device_cores="core0_MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <any_of>
           <all>
@@ -56,7 +54,7 @@
         <include_path relative_path="./source" project_relative_path="source" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.mmc.MIMXRT1062" name="mmc" brief="FatFs_MMC" version="0.14.2" full_name="Fatfs MMC layer" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" device_cores="core0_MIMXRT1062xxxxA core0_MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.mmc.MIMXRT1062" name="mmc" brief="FatFs_MMC" version="0.14.2" full_name="Fatfs MMC layer" devices="MIMXRT1062xxxxA" device_cores="core0_MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT1062"/>
@@ -74,7 +72,7 @@
         <include_path relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.ram.MIMXRT1062" name="ram" brief="FatFs_RAM" version="0.14.2" full_name="Fatfs RAM layer" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" device_cores="core0_MIMXRT1062xxxxA core0_MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.ram.MIMXRT1062" name="ram" brief="FatFs_RAM" version="0.14.2" full_name="Fatfs RAM layer" devices="MIMXRT1062xxxxA" device_cores="core0_MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT1062"/>
@@ -95,7 +93,7 @@
         <include_path relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.sd.MIMXRT1062" name="sd" brief="FatFs_SD" version="0.14.2" full_name="Fatfs SD layer" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" device_cores="core0_MIMXRT1062xxxxA core0_MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.sd.MIMXRT1062" name="sd" brief="FatFs_SD" version="0.14.2" full_name="Fatfs SD layer" devices="MIMXRT1062xxxxA" device_cores="core0_MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT1062"/>
@@ -116,7 +114,7 @@
         <include_path relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_mmc.MIMXRT1062" name="fatfs_mmc" brief="FatFs template MMC" version="0.14.2" full_name="FatFs template configuration for MMC disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_mmc.MIMXRT1062" name="fatfs_mmc" brief="FatFs template MMC" version="0.14.2" full_name="FatFs template configuration for MMC disk" devices="MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <source relative_path="./template/mmc" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
@@ -124,7 +122,7 @@
         <include_path relative_path="./template/mmc" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_nand.MIMXRT1062" name="fatfs_nand" brief="FatFs template NAND" version="0.14.2" full_name="FatFs template configuration for NAND disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_nand.MIMXRT1062" name="fatfs_nand" brief="FatFs template NAND" version="0.14.2" full_name="FatFs template configuration for NAND disk" devices="MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <source relative_path="./template/nand" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
@@ -132,7 +130,7 @@
         <include_path relative_path="./template/nand" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_ram.MIMXRT1062" name="fatfs_ram" brief="FatFs template RAM" version="0.14.2" full_name="FatFs template configuration for RAM disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_ram.MIMXRT1062" name="fatfs_ram" brief="FatFs template RAM" version="0.14.2" full_name="FatFs template configuration for RAM disk" devices="MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <source relative_path="./template/ram" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
@@ -140,7 +138,7 @@
         <include_path relative_path="./template/ram" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_sd.MIMXRT1062" name="fatfs_sd" brief="FatFs template SD" version="0.14.2" full_name="FatFs template configuration for SD disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_sd.MIMXRT1062" name="fatfs_sd" brief="FatFs template SD" version="0.14.2" full_name="FatFs template configuration for SD disk" devices="MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <source relative_path="./template/sd" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
@@ -148,7 +146,7 @@
         <include_path relative_path="./template/sd" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_sdspi.MIMXRT1062" name="fatfs_sdspi" brief="FatFs template SDSPI" version="0.14.2" full_name="FatFs template configuration for SDSPI disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_sdspi.MIMXRT1062" name="fatfs_sdspi" brief="FatFs template SDSPI" version="0.14.2" full_name="FatFs template configuration for SDSPI disk" devices="MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <source relative_path="./template/sdspi" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
@@ -156,7 +154,7 @@
         <include_path relative_path="./template/sdspi" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_usb.MIMXRT1062" name="fatfs_usb" brief="FatFs template USB" version="0.14.2" full_name="FatFs template configuration for USB disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_usb.MIMXRT1062" name="fatfs_usb" brief="FatFs template USB" version="0.14.2" full_name="FatFs template configuration for USB disk" devices="MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <source relative_path="./template/usb" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
@@ -164,7 +162,7 @@
         <include_path relative_path="./template/usb" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.unused_files.MIMXRT1062" name="unused_files" brief="fatfs files unused by projects" version="0.14.2" full_name="fatfs unused" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" user_visible="false" type="other" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.unused_files.MIMXRT1062" name="unused_files" brief="fatfs files unused by projects" version="0.14.2" full_name="fatfs unused" devices="MIMXRT1062xxxxA" user_visible="false" type="other" package_base_path=".././" project_base_path="fatfs">
       <source exclude="true" relative_path="./" type="doc">
         <files mask="ChangeLogKSDK.txt" hidden="true"/>
         <files mask="LICENSE.txt" hidden="true"/>
@@ -268,7 +266,7 @@
         <files mask="ffconf_template.h" hidden="true"/>
       </source>
     </component>
-    <component id="middleware.fatfs.usb.MIMXRT1062" name="usb" brief="FatFs_USB" version="0.14.2" full_name="Fatfs USB layer" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" device_cores="core0_MIMXRT1062xxxxA core0_MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.usb.MIMXRT1062" name="usb" brief="FatFs_USB" version="0.14.2" full_name="Fatfs USB layer" devices="MIMXRT1062xxxxA" device_cores="core0_MIMXRT1062xxxxA" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT1062"/>

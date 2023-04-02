@@ -721,3 +721,4 @@ if(${MCUX_DEVICE} STREQUAL "MK66F18")
 endif()
 
 include(middleware_usb_host_msd)
+include(middleware_fatfs)

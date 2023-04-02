@@ -157,3 +157,4 @@ if(${MCUX_DEVICE} STREQUAL "MK66F18")
 endif()
 
 include(middleware_sdmmc_sd)
+include(middleware_fatfs)

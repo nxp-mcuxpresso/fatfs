@@ -58,3 +58,4 @@ if(${MCUX_DEVICE} STREQUAL "MIMXRT1172_cm7")
 endif()
 
 include(driver_common)
+include(middleware_fatfs)
