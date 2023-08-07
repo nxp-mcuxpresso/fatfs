@@ -1,0 +1,859 @@
+---
+middleware.fatfs.template_mmc:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: source
+    cc-include:
+    - repo_relative_path: template/mmc
+      project_relative_path: "./"
+      target_file:
+      - ffconf.h
+      package_relative_path: template/mmc
+    files:
+    - source: middleware/fatfs/template/mmc/ffconf.h
+      project_relative_path: "./"
+      repo_relative_path: template/mmc
+      package_relative_path: template/mmc
+      type: c_include
+      config: true
+    - source: middleware/fatfs/middleware_fatfs_template_mmc.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: project_template
+    full_name: FatFs template configuration for MMC disk
+    description: FatFs template MMC
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: template_mmc
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs_mmc
+    vendor: NXP
+  meta-name: middleware.fatfs.template_mmc
+  cmake_module_name: middleware_fatfs_template_mmc
+middleware.fatfs.template_nand:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: source
+    cc-include:
+    - repo_relative_path: template/nand
+      project_relative_path: "./"
+      target_file:
+      - ffconf.h
+      package_relative_path: template/nand
+    files:
+    - source: middleware/fatfs/template/nand/ffconf.h
+      project_relative_path: "./"
+      repo_relative_path: template/nand
+      package_relative_path: template/nand
+      type: c_include
+      config: true
+    - source: middleware/fatfs/middleware_fatfs_template_nand.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: project_template
+    full_name: FatFs template configuration for NAND disk
+    description: FatFs template NAND
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: template_nand
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs_nand
+    vendor: NXP
+  meta-name: middleware.fatfs.template_nand
+  cmake_module_name: middleware_fatfs_template_nand
+middleware.fatfs.template_ram:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: source
+    cc-include:
+    - repo_relative_path: template/ram
+      project_relative_path: "./"
+      target_file:
+      - ffconf.h
+      package_relative_path: template/ram
+    files:
+    - source: middleware/fatfs/template/ram/ffconf.h
+      project_relative_path: "./"
+      repo_relative_path: template/ram
+      package_relative_path: template/ram
+      type: c_include
+      config: true
+    - source: middleware/fatfs/middleware_fatfs_template_ram.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: project_template
+    full_name: FatFs template configuration for RAM disk
+    description: FatFs template RAM
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: template_ram
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs_ram
+    vendor: NXP
+  meta-name: middleware.fatfs.template_ram
+  cmake_module_name: middleware_fatfs_template_ram
+middleware.fatfs.template_sd:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: source
+    cc-include:
+    - repo_relative_path: template/sd
+      project_relative_path: "./"
+      target_file:
+      - ffconf.h
+      package_relative_path: template/sd
+    files:
+    - source: middleware/fatfs/template/sd/ffconf.h
+      project_relative_path: "./"
+      repo_relative_path: template/sd
+      package_relative_path: template/sd
+      type: c_include
+      config: true
+    - source: middleware/fatfs/middleware_fatfs_template_sd.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: project_template
+    full_name: FatFs template configuration for SD disk
+    description: FatFs template SD
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: template_sd
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs_sd
+    vendor: NXP
+  meta-name: middleware.fatfs.template_sd
+  cmake_module_name: middleware_fatfs_template_sd
+middleware.fatfs.template_sdspi:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: source
+    cc-include:
+    - repo_relative_path: template/sdspi
+      project_relative_path: "./"
+      target_file:
+      - ffconf.h
+      package_relative_path: template/sdspi
+    files:
+    - source: middleware/fatfs/template/sdspi/ffconf.h
+      project_relative_path: "./"
+      repo_relative_path: template/sdspi
+      package_relative_path: template/sdspi
+      type: c_include
+      config: true
+    - source: middleware/fatfs/middleware_fatfs_template_sdspi.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: project_template
+    full_name: FatFs template configuration for SDSPI disk
+    description: FatFs template SDSPI
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: template_sdspi
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs_sdspi
+    vendor: NXP
+  meta-name: middleware.fatfs.template_sdspi
+  cmake_module_name: middleware_fatfs_template_sdspi
+middleware.fatfs.template_usb:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: source
+    cc-include:
+    - repo_relative_path: template/usb
+      project_relative_path: "./"
+      target_file:
+      - ffconf.h
+      package_relative_path: template/usb
+    files:
+    - source: middleware/fatfs/template/usb/ffconf.h
+      project_relative_path: "./"
+      repo_relative_path: template/usb
+      package_relative_path: template/usb
+      type: c_include
+      config: true
+    - source: middleware/fatfs/middleware_fatfs_template_usb.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: project_template
+    full_name: FatFs template configuration for USB disk
+    description: FatFs template USB
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: template_usb
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs_usb
+    vendor: NXP
+  meta-name: middleware.fatfs.template_usb
+  cmake_module_name: middleware_fatfs_template_usb
+container.fatfs.unused_files:
+  section-type: container
+  contents:
+    repo_base_path: middleware/fatfs
+    files:
+    - source: middleware/fatfs/ChangeLogKSDK.txt
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/00index_e.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/css_e.css
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/updates.txt
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/appnote.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/chdir.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/chdrive.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/chmod.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/close.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/closedir.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/config.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/dinit.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/dioctl.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/dread.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/dstat.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/dwrite.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/eof.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/error.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/expand.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/fattime.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/fdisk.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/filename.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/findfirst.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/findnext.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/forward.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/getcwd.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/getfree.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/getlabel.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/gets.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/lseek.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/mkdir.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/mkfs.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/mount.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/open.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/opendir.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/printf.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/putc.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/puts.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/rc.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/read.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/readdir.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/rename.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/sdir.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/setcp.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/setlabel.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/sfatfs.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/sfile.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/sfileinfo.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/size.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/stat.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/sync.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/tell.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/truncate.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/unlink.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/utime.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/doc/write.html
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/app1.c
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/app2.c
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/app3.c
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/app4.c
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/app5.c
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/app6.c
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f1.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f2.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f3.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f4.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f5.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f6.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/f7.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/funcs.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/layers.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/layers1.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/layers2.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/layers3.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/mkfatimg.zip
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/mkfs.xlsx
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/modules.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/rwtest1.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/rwtest2.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/documents/res/rwtest3.png
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/LICENSE.txt
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/source/00history.txt
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/source/00readme.txt
+      hidden: true
+      exclude: true
+    - source: middleware/fatfs/source/ffconf_template.h
+      hidden: true
+      exclude: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+set.middleware.fatfs:
+  section-type: set
+  belong_to: set.middleware.fatfs
+  section_info:
+    fixed_id: elm_chan_fatfs
+    version: '0.14'
+    display_name: Fatfs
+    description: FAT File System stack
+    set_location:
+      repo_base_path: middleware/fatfs
+    type: middleware
+    vendor: NXP
+    product:
+      kex_package:
+        kex_web_ui:
+          ui_control: true
+          ui_release_specific: true
+          ui_control_default: true
+          ui_category: Middleware
+        scr:
+        - scr.middleware.fatfs
+      cmsis_pack:
+        vendor: NXP
+        supported: true
+        pack_root:
+          pack_type: SWP
+          pack_name: FATFS
+          pack_version: 1.0.0
+        scr:
+        - scr.middleware.fatfs
+    component_taxonomy:
+      fatfs:
+        cclass: File System
+        cgroup: FAT File System
+license.fatfs_license:
+  section-type: license
+  belong_to: set.middleware.fatfs
+  contents:
+    repo_base_path: middleware/fatfs
+    files:
+    - source: middleware/fatfs/LICENSE.txt
+    package_base_path: middleware/fatfs
+  section_info:
+    Outgoing License: FatFs License
+    Approved open source license: 'Yes'
+scr.middleware.fatfs:
+  belong_to: set.middleware.fatfs
+  section-type: scr
+  contents:
+    license:
+    - license.fatfs_license
+    Name: FatFs
+    Version: 0.14b
+    Format: source code
+    Description: Generic FAT file system for small embedded devices.
+    Location: middleware/fatfs
+    Origin: Electronic Lives Mfg. by ChaN of Ageo city, Japan (FatFs License)
+    Url: http://elm-chan.org/fsw/ff/00index_e.html
+middleware.fatfs:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: fatfs
+    cc-include:
+    - repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+    files:
+    - source: middleware/fatfs/source/diskio.c
+      repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+      type: src
+    - source: middleware/fatfs/source/diskio.h
+      repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+      type: c_include
+    - source: middleware/fatfs/source/ff.c
+      repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+      type: src
+    - source: middleware/fatfs/source/ff.h
+      repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+      type: c_include
+    - source: middleware/fatfs/source/ffsystem.c
+      repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+      type: src
+    - source: middleware/fatfs/source/ffunicode.c
+      repo_relative_path: source
+      project_relative_path: source
+      package_relative_path: source
+      type: src
+    - source: middleware/fatfs/middleware_fatfs.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: middleware
+    full_name: FAT File System stack
+    description: FatFs
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: fatfs
+      cclass: File System
+      cgroup: FAT File System
+    display_name: fatfs
+    vendor: NXP
+  dependency:
+    anyOf:
+    - allOf:
+      - middleware.fatfs.template_ram
+      - middleware.fatfs.ram
+    - allOf:
+      - middleware.fatfs.template_sd
+      - middleware.fatfs.sd
+    - allOf:
+      - middleware.fatfs.template_sdspi
+      - middleware.fatfs.sdspi
+    - allOf:
+      - middleware.fatfs.template_mmc
+      - middleware.fatfs.mmc
+    - allOf:
+      - middleware.fatfs.template_usb
+      - middleware.fatfs.usb
+  meta-name: middleware.fatfs
+  cmake_module_name: middleware_fatfs
+middleware.fatfs.mmc:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: fatfs
+    cc-include:
+    - repo_relative_path: source/fsl_mmc_disk
+      project_relative_path: source/fsl_mmc_disk
+      package_relative_path: source/fsl_mmc_disk
+    files:
+    - source: middleware/fatfs/source/fsl_mmc_disk/fsl_mmc_disk.c
+      repo_relative_path: source/fsl_mmc_disk
+      project_relative_path: source/fsl_mmc_disk
+      package_relative_path: source/fsl_mmc_disk
+      type: src
+    - source: middleware/fatfs/source/fsl_mmc_disk/fsl_mmc_disk.h
+      repo_relative_path: source/fsl_mmc_disk
+      project_relative_path: source/fsl_mmc_disk
+      package_relative_path: source/fsl_mmc_disk
+      type: c_include
+    - source: middleware/fatfs/middleware_fatfs_mmc.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: middleware
+    full_name: Fatfs MMC layer
+    description: FatFs_MMC
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: mmc
+      cclass: File System
+      cgroup: FAT File System
+    display_name: mmc
+    vendor: NXP
+  dependency:
+    allOf:
+    - middleware.fatfs
+    - middleware.fatfs.template_mmc
+    - middleware.sdmmc.mmc
+  meta-name: middleware.fatfs.mmc
+  cmake_module_name: middleware_fatfs_mmc
+middleware.fatfs.ram:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: fatfs
+    cc-include:
+    - repo_relative_path: source/fsl_ram_disk
+      project_relative_path: source/fsl_ram_disk
+      package_relative_path: source/fsl_ram_disk
+    files:
+    - source: middleware/fatfs/source/fsl_ram_disk/fsl_ram_disk.c
+      repo_relative_path: source/fsl_ram_disk
+      project_relative_path: source/fsl_ram_disk
+      package_relative_path: source/fsl_ram_disk
+      type: src
+    - source: middleware/fatfs/source/fsl_ram_disk/fsl_ram_disk.h
+      repo_relative_path: source/fsl_ram_disk
+      project_relative_path: source/fsl_ram_disk
+      package_relative_path: source/fsl_ram_disk
+      type: c_include
+    - source: middleware/fatfs/middleware_fatfs_ram.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: middleware
+    full_name: Fatfs RAM layer
+    description: FatFs_RAM
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: ram
+      cclass: File System
+      cgroup: FAT File System
+    display_name: ram
+    vendor: NXP
+  dependency:
+    allOf:
+    - middleware.fatfs
+    - middleware.fatfs.template_ram
+    - driver.common
+  meta-name: middleware.fatfs.ram
+  cmake_module_name: middleware_fatfs_ram
+middleware.fatfs.sd:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: fatfs
+    cc-include:
+    - repo_relative_path: source/fsl_sd_disk
+      project_relative_path: source/fsl_sd_disk
+      package_relative_path: source/fsl_sd_disk
+    files:
+    - source: middleware/fatfs/source/fsl_sd_disk/fsl_sd_disk.c
+      repo_relative_path: source/fsl_sd_disk
+      project_relative_path: source/fsl_sd_disk
+      package_relative_path: source/fsl_sd_disk
+      type: src
+    - source: middleware/fatfs/source/fsl_sd_disk/fsl_sd_disk.h
+      repo_relative_path: source/fsl_sd_disk
+      project_relative_path: source/fsl_sd_disk
+      package_relative_path: source/fsl_sd_disk
+      type: c_include
+    - source: middleware/fatfs/middleware_fatfs_sd.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: middleware
+    full_name: Fatfs SD layer
+    description: FatFs_SD
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: sd
+      cclass: File System
+      cgroup: FAT File System
+    display_name: sd
+    vendor: NXP
+  dependency:
+    allOf:
+    - middleware.fatfs
+    - middleware.fatfs.template_sd
+    - middleware.sdmmc.sd
+  meta-name: middleware.fatfs.sd
+  cmake_module_name: middleware_fatfs_sd
+middleware.fatfs.sdspi:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: fatfs
+    cc-include:
+    - repo_relative_path: source/fsl_sdspi_disk
+      project_relative_path: source/fsl_sdspi_disk
+      package_relative_path: source/fsl_sdspi_disk
+    files:
+    - source: middleware/fatfs/source/fsl_sdspi_disk/fsl_sdspi_disk.c
+      repo_relative_path: source/fsl_sdspi_disk
+      project_relative_path: source/fsl_sdspi_disk
+      package_relative_path: source/fsl_sdspi_disk
+      type: src
+    - source: middleware/fatfs/source/fsl_sdspi_disk/fsl_sdspi_disk.h
+      repo_relative_path: source/fsl_sdspi_disk
+      project_relative_path: source/fsl_sdspi_disk
+      package_relative_path: source/fsl_sdspi_disk
+      type: c_include
+    - source: middleware/fatfs/middleware_fatfs_sdspi.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: middleware
+    full_name: Fatfs SDSPI layer
+    description: FatFs_SDSPI
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: sdspi
+      cclass: File System
+      cgroup: FAT File System
+    display_name: sdspi
+    vendor: NXP
+  dependency:
+    allOf:
+    - middleware.fatfs
+    - middleware.fatfs.template_sdspi
+    - middleware.sdmmc.sdspi
+    - driver.common
+    - driver.dspi
+    - driver.gpio
+  meta-name: middleware.fatfs.sdspi
+  cmake_module_name: middleware_fatfs_sdspi
+middleware.fatfs.usb:
+  section-type: component
+  contents:
+    repo_base_path: middleware/fatfs
+    project_base_path: fatfs
+    cc-include:
+    - repo_relative_path: source/fsl_usb_disk
+      project_relative_path: source/fsl_usb_disk
+      package_relative_path: source/fsl_usb_disk
+    files:
+    - source: middleware/fatfs/source/fsl_usb_disk/fsl_usb_disk.h
+      repo_relative_path: source/fsl_usb_disk
+      project_relative_path: source/fsl_usb_disk
+      package_relative_path: source/fsl_usb_disk
+      type: c_include
+    - source: middleware/fatfs/source/fsl_usb_disk/fsl_usb_disk_bm.c
+      components: middleware.baremetal
+      repo_relative_path: source/fsl_usb_disk
+      project_relative_path: source/fsl_usb_disk
+      package_relative_path: source/fsl_usb_disk
+      type: src
+    - source: middleware/fatfs/source/fsl_usb_disk/fsl_usb_disk_freertos.c
+      components: middleware.freertos-kernel
+      repo_relative_path: source/fsl_usb_disk
+      project_relative_path: source/fsl_usb_disk
+      package_relative_path: source/fsl_usb_disk
+      type: src
+    - source: middleware/fatfs/middleware_fatfs_usb.cmake
+      type: workspace
+      toolchains: armgcc
+      hidden: true
+    package_base_path: middleware/fatfs
+  belong_to: set.middleware.fatfs
+  section_info:
+    type: middleware
+    full_name: Fatfs USB layer
+    description: FatFs_USB
+    version: 0.14.2
+    user_visible: always
+    taxonomy:
+      csub: usb
+      cclass: File System
+      cgroup: FAT File System
+    display_name: usb
+    vendor: NXP
+  dependency:
+    allOf:
+    - middleware.fatfs
+    - middleware.fatfs.template_usb
+    - middleware.usb.host.stack
+    - middleware.usb.host.msd
+  meta-name: middleware.fatfs.usb
+  cmake_module_name: middleware_fatfs_usb
