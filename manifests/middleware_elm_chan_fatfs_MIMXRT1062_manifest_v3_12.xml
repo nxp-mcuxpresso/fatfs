@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_13" name="Fatfs" brief="FAT File System stack" format_version="3.13" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.13.xsd">
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_12" name="Fatfs" brief="FAT File System stack" format_version="3.12" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.12.xsd">
 
   <externalDefinitions>
     <definition extID="MIMXRT1062xxxxA"/>
@@ -13,10 +13,10 @@
     <definition extID="middleware.baremetal.MIMXRT1062"/>
     <definition extID="middleware.freertos-kernel.MIMXRT1062"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK2141_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_13" name="MCUXpressoSDK2141_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_13" version="2.14.1" revision="Provided by Script"/>
+  <ksdk id="MCUXpressoSDK2141_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_12" name="MCUXpressoSDK2141_middleware_elm_chan_fatfs_MIMXRT1062_manifest_v3_12" version="2.14.1" revision="Provided by Script"/>
   <components>
     <component id="middleware.fatfs.template_mmc.MIMXRT1062" name="fatfs_mmc" brief="FatFs template MMC" version="0.14.2" full_name="FatFs template configuration for MMC disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/mmc" project_relative_path="./" config="true" type="c_include">
+      <source relative_path="../../template/mmc" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
@@ -27,7 +27,7 @@
       </include_paths>
     </component>
     <component id="middleware.fatfs.template_nand.MIMXRT1062" name="fatfs_nand" brief="FatFs template NAND" version="0.14.2" full_name="FatFs template configuration for NAND disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/nand" project_relative_path="./" config="true" type="c_include">
+      <source relative_path="../../template/nand" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
         <files mask="dhara_nand_config.h"/>
       </source>
@@ -39,7 +39,7 @@
       </include_paths>
     </component>
     <component id="middleware.fatfs.template_ram.MIMXRT1062" name="fatfs_ram" brief="FatFs template RAM" version="0.14.2" full_name="FatFs template configuration for RAM disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/ram" project_relative_path="./" config="true" type="c_include">
+      <source relative_path="../../template/ram" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
@@ -50,7 +50,7 @@
       </include_paths>
     </component>
     <component id="middleware.fatfs.template_sd.MIMXRT1062" name="fatfs_sd" brief="FatFs template SD" version="0.14.2" full_name="FatFs template configuration for SD disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/sd" project_relative_path="./" config="true" type="c_include">
+      <source relative_path="../../template/sd" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
@@ -61,7 +61,7 @@
       </include_paths>
     </component>
     <component id="middleware.fatfs.template_sdspi.MIMXRT1062" name="fatfs_sdspi" brief="FatFs template SDSPI" version="0.14.2" full_name="FatFs template configuration for SDSPI disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/sdspi" project_relative_path="./" config="true" type="c_include">
+      <source relative_path="../../template/sdspi" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
@@ -72,7 +72,7 @@
       </include_paths>
     </component>
     <component id="middleware.fatfs.template_usb.MIMXRT1062" name="fatfs_usb" brief="FatFs template USB" version="0.14.2" full_name="FatFs template configuration for USB disk" devices="MIMXRT1062xxxxA MIMXRT1062xxxxB" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/usb" project_relative_path="./" config="true" type="c_include">
+      <source relative_path="../../template/usb" project_relative_path="./" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">

@@ -55,6 +55,12 @@ middleware.fatfs.template_nand:
       package_relative_path: template/nand
       type: c_include
       config: true
+    - source: middleware/fatfs/template/nand/dhara_nand_config.h
+      project_relative_path: "./"
+      repo_relative_path: template/nand
+      package_relative_path: template/nand
+      type: c_include
+      config: true
     - source: middleware/fatfs/middleware_fatfs_template_nand.cmake
       type: workspace
       toolchains: armgcc
@@ -611,9 +617,6 @@ middleware.fatfs:
       - middleware.fatfs.template_sd
       - middleware.fatfs.sd
     - allOf:
-      - middleware.fatfs.template_sdspi
-      - middleware.fatfs.sdspi
-    - allOf:
       - middleware.fatfs.template_mmc
       - middleware.fatfs.mmc
     - allOf:
@@ -756,54 +759,6 @@ middleware.fatfs.sd:
     - middleware.sdmmc.sd
   meta-name: middleware.fatfs.sd
   cmake_module_name: middleware_fatfs_sd
-middleware.fatfs.sdspi:
-  section-type: component
-  contents:
-    repo_base_path: middleware/fatfs
-    project_base_path: fatfs
-    cc-include:
-    - repo_relative_path: source/fsl_sdspi_disk
-      project_relative_path: source/fsl_sdspi_disk
-      package_relative_path: source/fsl_sdspi_disk
-    files:
-    - source: middleware/fatfs/source/fsl_sdspi_disk/fsl_sdspi_disk.c
-      repo_relative_path: source/fsl_sdspi_disk
-      project_relative_path: source/fsl_sdspi_disk
-      package_relative_path: source/fsl_sdspi_disk
-      type: src
-    - source: middleware/fatfs/source/fsl_sdspi_disk/fsl_sdspi_disk.h
-      repo_relative_path: source/fsl_sdspi_disk
-      project_relative_path: source/fsl_sdspi_disk
-      package_relative_path: source/fsl_sdspi_disk
-      type: c_include
-    - source: middleware/fatfs/middleware_fatfs_sdspi.cmake
-      type: workspace
-      toolchains: armgcc
-      hidden: true
-    package_base_path: middleware/fatfs
-  belong_to: set.middleware.fatfs
-  section_info:
-    type: middleware
-    full_name: Fatfs SDSPI layer
-    description: FatFs_SDSPI
-    version: 0.14.2
-    user_visible: always
-    taxonomy:
-      csub: sdspi
-      cclass: File System
-      cgroup: FAT File System
-    display_name: sdspi
-    vendor: NXP
-  dependency:
-    allOf:
-    - middleware.fatfs
-    - middleware.fatfs.template_sdspi
-    - middleware.sdmmc.sdspi
-    - driver.common
-    - driver.dspi
-    - driver.gpio
-  meta-name: middleware.fatfs.sdspi
-  cmake_module_name: middleware_fatfs_sdspi
 middleware.fatfs.usb:
   section-type: component
   contents:
