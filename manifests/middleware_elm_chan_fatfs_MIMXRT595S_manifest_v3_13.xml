@@ -12,75 +12,75 @@
     <definition extID="middleware.baremetal.MIMXRT595S"/>
     <definition extID="middleware.freertos-kernel.MIMXRT595S"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK2140_middleware_elm_chan_fatfs_MIMXRT595S_manifest_v3_13" name="MCUXpressoSDK2140_middleware_elm_chan_fatfs_MIMXRT595S_manifest_v3_13" version="2.14.0"/>
+  <ksdk id="MCUXpressoSDK2140_middleware_elm_chan_fatfs_MIMXRT595S_manifest_v3_13" name="MCUXpressoSDK2140_middleware_elm_chan_fatfs_MIMXRT595S_manifest_v3_13" version="2.14.0" revision="2.14.0"/>
   <components>
-    <component id="middleware.fatfs.template_mmc.MIMXRT595S" name="fatfs_mmc" brief="FatFs template MMC" version="0.14.2" full_name="FatFs template configuration for MMC disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/mmc" project_relative_path="./" config="true" type="c_include">
+    <component id="middleware.fatfs.template_mmc.MIMXRT595S" name="fatfs_mmc" brief="FatFs template MMC" version="0.14.2" full_name="FatFs template configuration for MMC disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/mmc" project_relative_path="./" config="true" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_template_mmc.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../template/mmc" project_relative_path="./" type="c_include"/>
+        <include_path relative_path="./template/mmc" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_nand.MIMXRT595S" name="fatfs_nand" brief="FatFs template NAND" version="0.14.2" full_name="FatFs template configuration for NAND disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/nand" project_relative_path="./" config="true" type="c_include">
+    <component id="middleware.fatfs.template_nand.MIMXRT595S" name="fatfs_nand" brief="FatFs template NAND" version="0.14.2" full_name="FatFs template configuration for NAND disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/nand" project_relative_path="./" config="true" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_template_nand.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../template/nand" project_relative_path="./" type="c_include"/>
+        <include_path relative_path="./template/nand" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_ram.MIMXRT595S" name="fatfs_ram" brief="FatFs template RAM" version="0.14.2" full_name="FatFs template configuration for RAM disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/ram" project_relative_path="./" config="true" type="c_include">
+    <component id="middleware.fatfs.template_ram.MIMXRT595S" name="fatfs_ram" brief="FatFs template RAM" version="0.14.2" full_name="FatFs template configuration for RAM disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/ram" project_relative_path="./" config="true" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_template_ram.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../template/ram" project_relative_path="./" type="c_include"/>
+        <include_path relative_path="./template/ram" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_sd.MIMXRT595S" name="fatfs_sd" brief="FatFs template SD" version="0.14.2" full_name="FatFs template configuration for SD disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/sd" project_relative_path="./" config="true" type="c_include">
+    <component id="middleware.fatfs.template_sd.MIMXRT595S" name="fatfs_sd" brief="FatFs template SD" version="0.14.2" full_name="FatFs template configuration for SD disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/sd" project_relative_path="./" config="true" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_template_sd.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../template/sd" project_relative_path="./" type="c_include"/>
+        <include_path relative_path="./template/sd" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_sdspi.MIMXRT595S" name="fatfs_sdspi" brief="FatFs template SDSPI" version="0.14.2" full_name="FatFs template configuration for SDSPI disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/sdspi" project_relative_path="./" config="true" type="c_include">
+    <component id="middleware.fatfs.template_sdspi.MIMXRT595S" name="fatfs_sdspi" brief="FatFs template SDSPI" version="0.14.2" full_name="FatFs template configuration for SDSPI disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/sdspi" project_relative_path="./" config="true" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_template_sdspi.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../template/sdspi" project_relative_path="./" type="c_include"/>
+        <include_path relative_path="./template/sdspi" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_usb.MIMXRT595S" name="fatfs_usb" brief="FatFs template USB" version="0.14.2" full_name="FatFs template configuration for USB disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path="../middleware/fatfs" project_base_path="source">
-      <source relative_path="../../template/usb" project_relative_path="./" config="true" type="c_include">
+    <component id="middleware.fatfs.template_usb.MIMXRT595S" name="fatfs_usb" brief="FatFs template USB" version="0.14.2" full_name="FatFs template configuration for USB disk" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+      <source relative_path="./template/usb" project_relative_path="./" config="true" type="c_include">
         <files mask="ffconf.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_template_usb.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../template/usb" project_relative_path="./" type="c_include"/>
+        <include_path relative_path="./template/usb" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.MIMXRT595S" name="fatfs" brief="FatFs" version="0.14.2" full_name="FAT File System stack" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path="../middleware/fatfs" project_base_path="fatfs">
+    <component id="middleware.fatfs.MIMXRT595S" name="fatfs" brief="FatFs" version="0.14.2" full_name="FAT File System stack" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <any_of>
           <all>
@@ -101,13 +101,13 @@
           </all>
         </any_of>
       </dependencies>
-      <source relative_path="../../source" project_relative_path="source" type="src">
+      <source relative_path="./source" project_relative_path="source" type="src">
         <files mask="diskio.c"/>
         <files mask="ff.c"/>
         <files mask="ffsystem.c"/>
         <files mask="ffunicode.c"/>
       </source>
-      <source relative_path="../../source" project_relative_path="source" type="c_include">
+      <source relative_path="./source" project_relative_path="source" type="c_include">
         <files mask="diskio.h"/>
         <files mask="ff.h"/>
       </source>
@@ -115,10 +115,10 @@
         <files mask="middleware_fatfs.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../source" project_relative_path="source" type="c_include"/>
+        <include_path relative_path="./source" project_relative_path="source" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.mmc.MIMXRT595S" name="mmc" brief="FatFs_MMC" version="0.14.2" full_name="Fatfs MMC layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path="../middleware/fatfs" project_base_path="fatfs">
+    <component id="middleware.fatfs.mmc.MIMXRT595S" name="mmc" brief="FatFs_MMC" version="0.14.2" full_name="Fatfs MMC layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT595S"/>
@@ -126,20 +126,20 @@
           <component_dependency value="middleware.sdmmc.mmc.MIMXRT595S"/>
         </all>
       </dependencies>
-      <source relative_path="../../source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="src">
+      <source relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="src">
         <files mask="fsl_mmc_disk.c"/>
       </source>
-      <source relative_path="../../source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include">
+      <source relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include">
         <files mask="fsl_mmc_disk.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_mmc.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include"/>
+        <include_path relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.ram.MIMXRT595S" name="ram" brief="FatFs_RAM" version="0.14.2" full_name="Fatfs RAM layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path="../middleware/fatfs" project_base_path="fatfs">
+    <component id="middleware.fatfs.ram.MIMXRT595S" name="ram" brief="FatFs_RAM" version="0.14.2" full_name="Fatfs RAM layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT595S"/>
@@ -147,20 +147,20 @@
           <component_dependency value="platform.drivers.common.MIMXRT595S"/>
         </all>
       </dependencies>
-      <source relative_path="../../source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="src">
+      <source relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="src">
         <files mask="fsl_ram_disk.c"/>
       </source>
-      <source relative_path="../../source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include">
+      <source relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include">
         <files mask="fsl_ram_disk.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_ram.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include"/>
+        <include_path relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.sd.MIMXRT595S" name="sd" brief="FatFs_SD" version="0.14.2" full_name="Fatfs SD layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path="../middleware/fatfs" project_base_path="fatfs">
+    <component id="middleware.fatfs.sd.MIMXRT595S" name="sd" brief="FatFs_SD" version="0.14.2" full_name="Fatfs SD layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT595S"/>
@@ -168,20 +168,20 @@
           <component_dependency value="middleware.sdmmc.sd.MIMXRT595S"/>
         </all>
       </dependencies>
-      <source relative_path="../../source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="src">
+      <source relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="src">
         <files mask="fsl_sd_disk.c"/>
       </source>
-      <source relative_path="../../source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include">
+      <source relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include">
         <files mask="fsl_sd_disk.h"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_sd.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include"/>
+        <include_path relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.usb.MIMXRT595S" name="usb" brief="FatFs_USB" version="0.14.2" full_name="Fatfs USB layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path="../middleware/fatfs" project_base_path="fatfs">
+    <component id="middleware.fatfs.usb.MIMXRT595S" name="usb" brief="FatFs_USB" version="0.14.2" full_name="Fatfs USB layer" devices="MIMXRT595S" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <component_dependency value="middleware.fatfs.MIMXRT595S"/>
@@ -190,20 +190,20 @@
           <component_dependency value="middleware.usb.host_msd.MIMXRT595S"/>
         </all>
       </dependencies>
-      <source relative_path="../../source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include">
+      <source relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include">
         <files mask="fsl_usb_disk.h"/>
       </source>
-      <source condition="middleware.baremetal.MIMXRT595S" relative_path="../../source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
+      <source condition="middleware.baremetal.MIMXRT595S" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
         <files mask="fsl_usb_disk_bm.c"/>
       </source>
-      <source condition="middleware.freertos-kernel.MIMXRT595S" relative_path="../../source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
+      <source condition="middleware.freertos-kernel.MIMXRT595S" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
         <files mask="fsl_usb_disk_freertos.c"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
         <files mask="middleware_fatfs_usb.cmake" hidden="true"/>
       </source>
       <include_paths>
-        <include_path relative_path="../../source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include"/>
+        <include_path relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include"/>
       </include_paths>
     </component>
   </components>
