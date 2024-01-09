@@ -17,10 +17,7 @@ target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
 if(CONFIG_USE_middleware_fatfs_usb) 
     include(middleware_fatfs_usb)
 endif()
-if(CONFIG_USE_middleware_fatfs_mmc) 
-    include(middleware_fatfs_mmc)
-endif()
-if(CONFIG_USE_middleware_fatfs_sd) 
-    include(middleware_fatfs_sd)
+if(CONFIG_USE_middleware_fatfs_ram) 
+    include(middleware_fatfs_ram)
 endif()
 
