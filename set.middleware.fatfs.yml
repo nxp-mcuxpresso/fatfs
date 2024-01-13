@@ -27,7 +27,7 @@ middleware.fatfs.template_mmc:
     type: project_template
     full_name: FatFs template configuration for MMC disk
     description: FatFs template MMC
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: template_mmc
@@ -55,6 +55,12 @@ middleware.fatfs.template_nand:
       package_relative_path: template/nand
       type: c_include
       config: true
+    - source: middleware/fatfs/template/nand/dhara_nand_config.h
+      project_relative_path: "./"
+      repo_relative_path: template/nand
+      package_relative_path: template/nand
+      type: c_include
+      config: true
     - source: middleware/fatfs/middleware_fatfs_template_nand.cmake
       type: workspace
       toolchains: armgcc
@@ -65,7 +71,7 @@ middleware.fatfs.template_nand:
     type: project_template
     full_name: FatFs template configuration for NAND disk
     description: FatFs template NAND
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: template_nand
@@ -103,7 +109,7 @@ middleware.fatfs.template_ram:
     type: project_template
     full_name: FatFs template configuration for RAM disk
     description: FatFs template RAM
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: template_ram
@@ -141,7 +147,7 @@ middleware.fatfs.template_sd:
     type: project_template
     full_name: FatFs template configuration for SD disk
     description: FatFs template SD
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: template_sd
@@ -179,7 +185,7 @@ middleware.fatfs.template_sdspi:
     type: project_template
     full_name: FatFs template configuration for SDSPI disk
     description: FatFs template SDSPI
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: template_sdspi
@@ -217,7 +223,7 @@ middleware.fatfs.template_usb:
     type: project_template
     full_name: FatFs template configuration for USB disk
     description: FatFs template USB
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: template_usb
@@ -241,7 +247,7 @@ container.fatfs.unused_files:
     - source: middleware/fatfs/documents/css_e.css
       hidden: true
       exclude: true
-    - source: middleware/fatfs/documents/updates.txt
+    - source: middleware/fatfs/documents/updates.html
       hidden: true
       exclude: true
     - source: middleware/fatfs/documents/doc/appnote.html
@@ -472,6 +478,9 @@ container.fatfs.unused_files:
     - source: middleware/fatfs/documents/res/rwtest3.png
       hidden: true
       exclude: true
+    - source: middleware/fatfs/documents/res/uniconv.zip
+      hidden: true
+      exclude: true
     - source: middleware/fatfs/LICENSE.txt
       hidden: true
       exclude: true
@@ -491,7 +500,7 @@ set.middleware.fatfs:
   belong_to: set.middleware.fatfs
   section_info:
     fixed_id: elm_chan_fatfs
-    version: '0.14'
+    version: 0.15.0
     display_name: Fatfs
     description: FAT File System stack
     set_location:
@@ -538,7 +547,7 @@ scr.middleware.fatfs:
     license:
     - license.fatfs_license
     Name: FatFs
-    Version: 0.14b
+    Version: R0.15
     Format: source code
     Description: Generic FAT file system for small embedded devices.
     Location: middleware/fatfs
@@ -594,7 +603,7 @@ middleware.fatfs:
     type: middleware
     full_name: FAT File System stack
     description: FatFs
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: fatfs
@@ -651,7 +660,7 @@ middleware.fatfs.mmc:
     type: middleware
     full_name: Fatfs MMC layer
     description: FatFs_MMC
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: mmc
@@ -696,7 +705,7 @@ middleware.fatfs.ram:
     type: middleware
     full_name: Fatfs RAM layer
     description: FatFs_RAM
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: ram
@@ -741,7 +750,7 @@ middleware.fatfs.sd:
     type: middleware
     full_name: Fatfs SD layer
     description: FatFs_SD
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: sd
@@ -786,7 +795,7 @@ middleware.fatfs.sdspi:
     type: middleware
     full_name: Fatfs SDSPI layer
     description: FatFs_SDSPI
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: sdspi
@@ -841,7 +850,7 @@ middleware.fatfs.usb:
     type: middleware
     full_name: Fatfs USB layer
     description: FatFs_USB
-    version: 0.14.2
+    version: 0.15.0
     user_visible: always
     taxonomy:
       csub: usb
