@@ -73,7 +73,7 @@ if (CONFIG_USE_middleware_fatfs)
 
 message("middleware_fatfs component is included from ${CMAKE_CURRENT_LIST_FILE}.")
 
-if((CONFIG_USE_middleware_fatfs_template_ram AND CONFIG_USE_middleware_fatfs_ram) OR (CONFIG_USE_middleware_fatfs_template_sd AND CONFIG_USE_middleware_fatfs_sd) OR (CONFIG_USE_middleware_fatfs_template_sdspi AND CONFIG_USE_middleware_fatfs_sdspi) OR (CONFIG_USE_middleware_fatfs_template_mmc AND CONFIG_USE_middleware_fatfs_mmc) OR (CONFIG_USE_middleware_fatfs_template_usb AND CONFIG_USE_middleware_fatfs_usb))
+if((CONFIG_USE_middleware_fatfs_template_ram AND CONFIG_USE_middleware_fatfs_ram) OR (CONFIG_USE_middleware_fatfs_template_usb AND CONFIG_USE_middleware_fatfs_usb))
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/./source/diskio.c
@@ -89,30 +89,6 @@ target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
 else()
 
 message(SEND_ERROR "middleware_fatfs dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
-
-endif()
-
-endif()
-
-
-if (CONFIG_USE_middleware_fatfs_mmc)
-# Add set(CONFIG_USE_middleware_fatfs_mmc true) in config.cmake to use this component
-
-message("middleware_fatfs_mmc component is included from ${CMAKE_CURRENT_LIST_FILE}.")
-
-if(CONFIG_USE_middleware_fatfs AND CONFIG_USE_middleware_fatfs_template_mmc AND CONFIG_USE_middleware_sdmmc_mmc)
-
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_mmc_disk/fsl_mmc_disk.c
-)
-
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_mmc_disk
-)
-
-else()
-
-message(SEND_ERROR "middleware_fatfs_mmc dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
 
 endif()
 
@@ -137,54 +113,6 @@ target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
 else()
 
 message(SEND_ERROR "middleware_fatfs_ram dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
-
-endif()
-
-endif()
-
-
-if (CONFIG_USE_middleware_fatfs_sd)
-# Add set(CONFIG_USE_middleware_fatfs_sd true) in config.cmake to use this component
-
-message("middleware_fatfs_sd component is included from ${CMAKE_CURRENT_LIST_FILE}.")
-
-if(CONFIG_USE_middleware_fatfs AND CONFIG_USE_middleware_fatfs_template_sd AND CONFIG_USE_middleware_sdmmc_sd)
-
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_sd_disk/fsl_sd_disk.c
-)
-
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_sd_disk
-)
-
-else()
-
-message(SEND_ERROR "middleware_fatfs_sd dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
-
-endif()
-
-endif()
-
-
-if (CONFIG_USE_middleware_fatfs_sdspi)
-# Add set(CONFIG_USE_middleware_fatfs_sdspi true) in config.cmake to use this component
-
-message("middleware_fatfs_sdspi component is included from ${CMAKE_CURRENT_LIST_FILE}.")
-
-if(CONFIG_USE_middleware_fatfs AND CONFIG_USE_middleware_fatfs_template_sdspi AND CONFIG_USE_middleware_sdmmc_sdspi AND CONFIG_USE_driver_common AND CONFIG_USE_driver_dspi AND CONFIG_USE_driver_gpio)
-
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_sdspi_disk/fsl_sdspi_disk.c
-)
-
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_sdspi_disk
-)
-
-else()
-
-message(SEND_ERROR "middleware_fatfs_sdspi dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
 
 endif()
 
