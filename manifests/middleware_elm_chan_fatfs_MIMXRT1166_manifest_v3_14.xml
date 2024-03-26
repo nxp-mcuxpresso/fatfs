@@ -12,7 +12,7 @@
     <definition extID="middleware.baremetal.MIMXRT1166"/>
     <definition extID="middleware.freertos-kernel.MIMXRT1166"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK2150_middleware_elm_chan_fatfs_MIMXRT1166_manifest_v3_14" name="MCUXpressoSDK2150_middleware_elm_chan_fatfs_MIMXRT1166_manifest_v3_14" version="2.15.0" revision="2.15.0"/>
+  <ksdk id="MCUXpressoSDK215100_middleware_elm_chan_fatfs_MIMXRT1166_manifest_v3_14" name="MCUXpressoSDK215100_middleware_elm_chan_fatfs_MIMXRT1166_manifest_v3_14" version="2.15.100" revision="2.15.100"/>
   <components>
     <component id="middleware.fatfs.template_mmc.MIMXRT1166" name="fatfs_mmc" brief="FatFs template MMC" version="0.15.0" full_name="FatFs template configuration for MMC disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <dependencies>
