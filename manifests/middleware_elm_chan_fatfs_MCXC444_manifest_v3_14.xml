@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_K32L2B31A_manifest_v3_14" name="Fatfs" brief="FAT File System stack" format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_MCXC444_manifest_v3_14" name="Fatfs" brief="FAT File System stack" format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
 
   <externalDefinitions>
-    <definition extID="K32L2B31xxxxA"/>
+    <definition extID="MCXC444"/>
     <definition extID="armgcc"/>
-    <definition extID="platform.drivers.common.K32L2B31A"/>
+    <definition extID="platform.drivers.common.MCXC444"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK216000_middleware_elm_chan_fatfs_K32L2B31A_manifest_v3_14" name="MCUXpressoSDK216000_middleware_elm_chan_fatfs_K32L2B31A_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
+  <ksdk id="MCUXpressoSDK216000_middleware_elm_chan_fatfs_MCXC444_manifest_v3_14" name="MCUXpressoSDK216000_middleware_elm_chan_fatfs_MCXC444_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
   <components>
-    <component id="middleware.fatfs.K32L2B31A" name="fatfs" brief="FatFs" version="0.15.0" full_name="FAT File System stack" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.MCXC444" name="fatfs" brief="FatFs" version="0.15.0" full_name="FAT File System stack" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.template_ram.K32L2B31A"/>
-          <component_dependency value="middleware.fatfs.ram.K32L2B31A"/>
-          <device_dependency value="K32L2B31xxxxA"/>
+          <component_dependency value="middleware.fatfs.template_ram.MCXC444"/>
+          <component_dependency value="middleware.fatfs.ram.MCXC444"/>
+          <device_dependency value="MCXC444"/>
         </all>
       </dependencies>
       <source relative_path="./source" project_relative_path="source" type="src">
@@ -33,13 +33,13 @@
         <include_path relative_path="./source" project_relative_path="source" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.ram.K32L2B31A" name="ram" brief="FatFs_RAM" version="0.15.0" full_name="Fatfs RAM layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.ram.MCXC444" name="ram" brief="FatFs_RAM" version="0.15.0" full_name="Fatfs RAM layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.K32L2B31A"/>
-          <component_dependency value="middleware.fatfs.template_ram.K32L2B31A"/>
-          <component_dependency value="platform.drivers.common.K32L2B31A"/>
-          <device_dependency value="K32L2B31xxxxA"/>
+          <component_dependency value="middleware.fatfs.MCXC444"/>
+          <component_dependency value="middleware.fatfs.template_ram.MCXC444"/>
+          <component_dependency value="platform.drivers.common.MCXC444"/>
+          <device_dependency value="MCXC444"/>
         </all>
       </dependencies>
       <source relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="src">
@@ -55,11 +55,11 @@
         <include_path relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_ram.K32L2B31A" name="fatfs_ram" brief="FatFs template RAM" version="0.15.0" full_name="FatFs template configuration for RAM disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_ram.MCXC444" name="fatfs_ram" brief="FatFs template RAM" version="0.15.0" full_name="FatFs template configuration for RAM disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.ram.K32L2B31A"/>
-          <device_dependency value="K32L2B31xxxxA"/>
+          <component_dependency value="middleware.fatfs.ram.MCXC444"/>
+          <device_dependency value="MCXC444"/>
         </all>
       </dependencies>
       <source relative_path="./template/ram" project_relative_path="./" config="true" type="c_include">

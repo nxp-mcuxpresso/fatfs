@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_LPC55S28_manifest_v3_14" name="Fatfs" brief="FAT File System stack" format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_elm_chan_fatfs_MCXN947_manifest_v3_14" name="Fatfs" brief="FAT File System stack" format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
 
   <externalDefinitions>
-    <definition extID="LPC55S28"/>
+    <definition extID="MCXN947"/>
     <definition extID="armgcc"/>
-    <definition extID="middleware.sdmmc.mmc.LPC55S28"/>
-    <definition extID="platform.drivers.common.LPC55S28"/>
-    <definition extID="middleware.sdmmc.sd.LPC55S28"/>
-    <definition extID="middleware.usb.host.stack.LPC55S28"/>
-    <definition extID="middleware.usb.host_msd.LPC55S28"/>
-    <definition extID="middleware.baremetal.LPC55S28"/>
-    <definition extID="middleware.freertos-kernel.LPC55S28"/>
+    <definition extID="middleware.sdmmc.mmc.MCXN947"/>
+    <definition extID="platform.drivers.common.MCXN947"/>
+    <definition extID="middleware.sdmmc.sd.MCXN947"/>
+    <definition extID="middleware.usb.host.stack.MCXN947"/>
+    <definition extID="middleware.usb.host_msd.MCXN947"/>
+    <definition extID="middleware.baremetal.MCXN947"/>
+    <definition extID="middleware.freertos-kernel.MCXN947"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK216000_middleware_elm_chan_fatfs_LPC55S28_manifest_v3_14" name="MCUXpressoSDK216000_middleware_elm_chan_fatfs_LPC55S28_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
+  <ksdk id="MCUXpressoSDK216000_middleware_elm_chan_fatfs_MCXN947_manifest_v3_14" name="MCUXpressoSDK216000_middleware_elm_chan_fatfs_MCXN947_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
   <components>
-    <component id="middleware.fatfs.LPC55S28" name="fatfs" brief="FatFs" version="0.15.0" full_name="FAT File System stack" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.MCXN947" name="fatfs" brief="FatFs" version="0.15.0" full_name="FAT File System stack" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
           <any_of>
             <all>
-              <component_dependency value="middleware.fatfs.template_ram.LPC55S28"/>
-              <component_dependency value="middleware.fatfs.ram.LPC55S28"/>
+              <component_dependency value="middleware.fatfs.template_ram.MCXN947"/>
+              <component_dependency value="middleware.fatfs.ram.MCXN947"/>
             </all>
             <all>
-              <component_dependency value="middleware.fatfs.template_sd.LPC55S28"/>
-              <component_dependency value="middleware.fatfs.sd.LPC55S28"/>
+              <component_dependency value="middleware.fatfs.template_sd.MCXN947"/>
+              <component_dependency value="middleware.fatfs.sd.MCXN947"/>
             </all>
             <all>
-              <component_dependency value="middleware.fatfs.template_mmc.LPC55S28"/>
-              <component_dependency value="middleware.fatfs.mmc.LPC55S28"/>
+              <component_dependency value="middleware.fatfs.template_mmc.MCXN947"/>
+              <component_dependency value="middleware.fatfs.mmc.MCXN947"/>
             </all>
             <all>
-              <component_dependency value="middleware.fatfs.template_usb.LPC55S28"/>
-              <component_dependency value="middleware.fatfs.usb.LPC55S28"/>
+              <component_dependency value="middleware.fatfs.template_usb.MCXN947"/>
+              <component_dependency value="middleware.fatfs.usb.MCXN947"/>
             </all>
           </any_of>
-          <device_dependency value="LPC55S28"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./source" project_relative_path="source" type="src">
@@ -55,13 +55,13 @@
         <include_path relative_path="./source" project_relative_path="source" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.mmc.LPC55S28" name="mmc" brief="FatFs_MMC" version="0.15.0" full_name="Fatfs MMC layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.mmc.MCXN947" name="mmc" brief="FatFs_MMC" version="0.15.0" full_name="Fatfs MMC layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.LPC55S28"/>
-          <component_dependency value="middleware.fatfs.template_mmc.LPC55S28"/>
-          <component_dependency value="middleware.sdmmc.mmc.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.MCXN947"/>
+          <component_dependency value="middleware.fatfs.template_mmc.MCXN947"/>
+          <component_dependency value="middleware.sdmmc.mmc.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="src">
@@ -77,13 +77,13 @@
         <include_path relative_path="./source/fsl_mmc_disk" project_relative_path="source/fsl_mmc_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.ram.LPC55S28" name="ram" brief="FatFs_RAM" version="0.15.0" full_name="Fatfs RAM layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.ram.MCXN947" name="ram" brief="FatFs_RAM" version="0.15.0" full_name="Fatfs RAM layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.LPC55S28"/>
-          <component_dependency value="middleware.fatfs.template_ram.LPC55S28"/>
-          <component_dependency value="platform.drivers.common.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.MCXN947"/>
+          <component_dependency value="middleware.fatfs.template_ram.MCXN947"/>
+          <component_dependency value="platform.drivers.common.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="src">
@@ -99,13 +99,13 @@
         <include_path relative_path="./source/fsl_ram_disk" project_relative_path="source/fsl_ram_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.sd.LPC55S28" name="sd" brief="FatFs_SD" version="0.15.0" full_name="Fatfs SD layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.sd.MCXN947" name="sd" brief="FatFs_SD" version="0.15.0" full_name="Fatfs SD layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.LPC55S28"/>
-          <component_dependency value="middleware.fatfs.template_sd.LPC55S28"/>
-          <component_dependency value="middleware.sdmmc.sd.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.MCXN947"/>
+          <component_dependency value="middleware.fatfs.template_sd.MCXN947"/>
+          <component_dependency value="middleware.sdmmc.sd.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="src">
@@ -121,11 +121,11 @@
         <include_path relative_path="./source/fsl_sd_disk" project_relative_path="source/fsl_sd_disk" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_mmc.LPC55S28" name="fatfs_mmc" brief="FatFs template MMC" version="0.15.0" full_name="FatFs template configuration for MMC disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_mmc.MCXN947" name="fatfs_mmc" brief="FatFs template MMC" version="0.15.0" full_name="FatFs template configuration for MMC disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.mmc.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.mmc.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./template/mmc" project_relative_path="./" config="true" type="c_include">
@@ -138,11 +138,11 @@
         <include_path relative_path="./template/mmc" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_ram.LPC55S28" name="fatfs_ram" brief="FatFs template RAM" version="0.15.0" full_name="FatFs template configuration for RAM disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_ram.MCXN947" name="fatfs_ram" brief="FatFs template RAM" version="0.15.0" full_name="FatFs template configuration for RAM disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.ram.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.ram.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./template/ram" project_relative_path="./" config="true" type="c_include">
@@ -155,11 +155,11 @@
         <include_path relative_path="./template/ram" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_sd.LPC55S28" name="fatfs_sd" brief="FatFs template SD" version="0.15.0" full_name="FatFs template configuration for SD disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_sd.MCXN947" name="fatfs_sd" brief="FatFs template SD" version="0.15.0" full_name="FatFs template configuration for SD disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.sd.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.sd.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./template/sd" project_relative_path="./" config="true" type="c_include">
@@ -172,11 +172,11 @@
         <include_path relative_path="./template/sd" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.template_usb.LPC55S28" name="fatfs_usb" brief="FatFs template USB" version="0.15.0" full_name="FatFs template configuration for USB disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
+    <component id="middleware.fatfs.template_usb.MCXN947" name="fatfs_usb" brief="FatFs template USB" version="0.15.0" full_name="FatFs template configuration for USB disk" category="File System/FAT File System" user_visible="true" type="project_template" package_base_path=".././" project_base_path="source">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.usb.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.usb.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./template/usb" project_relative_path="./" config="true" type="c_include">
@@ -189,23 +189,23 @@
         <include_path relative_path="./template/usb" project_relative_path="./" type="c_include"/>
       </include_paths>
     </component>
-    <component id="middleware.fatfs.usb.LPC55S28" name="usb" brief="FatFs_USB" version="0.15.0" full_name="Fatfs USB layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
+    <component id="middleware.fatfs.usb.MCXN947" name="usb" brief="FatFs_USB" version="0.15.0" full_name="Fatfs USB layer" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>
         <all>
-          <component_dependency value="middleware.fatfs.LPC55S28"/>
-          <component_dependency value="middleware.fatfs.template_usb.LPC55S28"/>
-          <component_dependency value="middleware.usb.host.stack.LPC55S28"/>
-          <component_dependency value="middleware.usb.host_msd.LPC55S28"/>
-          <device_dependency value="LPC55S28"/>
+          <component_dependency value="middleware.fatfs.MCXN947"/>
+          <component_dependency value="middleware.fatfs.template_usb.MCXN947"/>
+          <component_dependency value="middleware.usb.host.stack.MCXN947"/>
+          <component_dependency value="middleware.usb.host_msd.MCXN947"/>
+          <device_dependency value="MCXN947"/>
         </all>
       </dependencies>
       <source relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="c_include">
         <files mask="fsl_usb_disk.h"/>
       </source>
-      <source condition="middleware.baremetal.LPC55S28" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
+      <source condition="middleware.baremetal.MCXN947" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
         <files mask="fsl_usb_disk_bm.c"/>
       </source>
-      <source condition="middleware.freertos-kernel.LPC55S28" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
+      <source condition="middleware.freertos-kernel.MCXN947" relative_path="./source/fsl_usb_disk" project_relative_path="source/fsl_usb_disk" type="src">
         <files mask="fsl_usb_disk_freertos.c"/>
       </source>
       <source toolchain="armgcc" relative_path="./" type="workspace">
