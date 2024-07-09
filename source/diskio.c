@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2015, Freescale Semiconductor, Inc.
+ * Copyright 2016-2024 NXP
+ * All rights reserved.
+ *
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 /*-----------------------------------------------------------------------*/
 /* Low level disk I/O module SKELETON for FatFs     (C)ChaN, 2019        */
 /*-----------------------------------------------------------------------*/
@@ -6,50 +14,79 @@
 /* This is an example of glue functions to attach various exsisting      */
 /* storage control modules to the FatFs module with a defined API.       */
 /*-----------------------------------------------------------------------*/
+#include "ffconf.h"     /* FatFs configuration options */
+#include "ff.h"         /* Obtains integer types */
+#include "diskio.h"     /* Declarations of disk functions */
 
-#include "ff.h"			/* Obtains integer types */
-#include "diskio.h"		/* Declarations of disk functions */
+#if defined(RAM_DISK_ENABLE) && (RAM_DISK_ENABLE == 1)
+#include "fsl_ram_disk.h"
+#endif
 
-/* Definitions of physical drive number for each drive */
-#define DEV_RAM		0	/* Example: Map Ramdisk to physical drive 0 */
-#define DEV_MMC		1	/* Example: Map MMC/SD card to physical drive 1 */
-#define DEV_USB		2	/* Example: Map USB MSD to physical drive 2 */
+#if defined(USB_DISK_ENABLE) && (USB_DISK_ENABLE == 1)
+#include "fsl_usb_disk.h"
+#endif
 
+#if defined(SD_DISK_ENABLE) && (SD_DISK_ENABLE == 1)
+#include "fsl_sd_disk.h"
+#endif
+
+#if defined(MMC_DISK_ENABLE) && (MMC_DISK_ENABLE == 1)
+#include "fsl_mmc_disk.h"
+#endif
+
+#if defined(SDSPI_DISK_ENABLE) && (SDSPI_DISK_ENABLE == 1)
+#include "fsl_sdspi_disk.h"
+#endif
+
+#if defined(NAND_DISK_ENABLE) && (NAND_DISK_ENABLE == 1)
+#include "fsl_nand_disk.h"
+#endif
 
 /*-----------------------------------------------------------------------*/
 /* Get Drive Status                                                      */
 /*-----------------------------------------------------------------------*/
 
 DSTATUS disk_status (
-	BYTE pdrv		/* Physical drive nmuber to identify the drive */
+    BYTE pdrv        /* Physical drive nmuber to identify the drive */
 )
 {
-	DSTATUS stat;
-	int result;
-
-	switch (pdrv) {
-	case DEV_RAM :
-		result = RAM_disk_status();
-
-		// translate the reslut code here
-
-		return stat;
-
-	case DEV_MMC :
-		result = MMC_disk_status();
-
-		// translate the reslut code here
-
-		return stat;
-
-	case DEV_USB :
-		result = USB_disk_status();
-
-		// translate the reslut code here
-
-		return stat;
-	}
-	return STA_NOINIT;
+    DSTATUS stat;
+    switch (pdrv)
+    {
+#if defined(RAM_DISK_ENABLE) && (RAM_DISK_ENABLE == 1)
+        case RAMDISK:
+            stat = ram_disk_status(pdrv);
+            return stat;
+#endif
+#if defined(USB_DISK_ENABLE) && (USB_DISK_ENABLE == 1)
+        case USBDISK:
+            stat = USB_HostMsdGetDiskStatus(pdrv);
+            return stat;
+#endif
+#if defined(SD_DISK_ENABLE) && (SD_DISK_ENABLE == 1)
+        case SDDISK:
+            stat = sd_disk_status(pdrv);
+            return stat;
+#endif
+#if defined(MMC_DISK_ENABLE) && (MMC_DISK_ENABLE == 1)
+        case MMCDISK:
+            stat = mmc_disk_status(pdrv);
+            return stat;
+#endif
+#if defined(SDSPI_DISK_ENABLE) && (SDSPI_DISK_ENABLE == 1)
+        case SDSPIDISK:
+            stat = sdspi_disk_status(pdrv);
+            return stat;
+#endif
+#if defined(NAND_DISK_ENABLE) && (NAND_DISK_ENABLE == 1)
+        case NANDDISK:
+            stat = nand_disk_status(pdrv);
+            return stat;
+#endif
+        default:
+            break;
+    }
+    return STA_NOINIT;
 }
 
 
@@ -59,35 +96,47 @@ DSTATUS disk_status (
 /*-----------------------------------------------------------------------*/
 
 DSTATUS disk_initialize (
-	BYTE pdrv				/* Physical drive nmuber to identify the drive */
+    BYTE pdrv                /* Physical drive nmuber to identify the drive */
 )
 {
-	DSTATUS stat;
-	int result;
+    DSTATUS stat;
+    switch (pdrv)
+    {
+#if defined(RAM_DISK_ENABLE) && (RAM_DISK_ENABLE == 1)
+        case RAMDISK:
+            stat = ram_disk_initialize(pdrv);
+            return stat;
+#endif
+#if defined(USB_DISK_ENABLE) && (USB_DISK_ENABLE == 1)
+        case USBDISK:
+            stat = USB_HostMsdInitializeDisk(pdrv);
+            return stat;
+#endif
+#if defined(SD_DISK_ENABLE) && (SD_DISK_ENABLE == 1)
+        case SDDISK:
+            stat = sd_disk_initialize(pdrv);
+            return stat;
+#endif
+#if defined(MMC_DISK_ENABLE) && (MMC_DISK_ENABLE == 1)
+        case MMCDISK:
+            stat = mmc_disk_initialize(pdrv);
+            return stat;
+#endif
+#if defined(SDSPI_DISK_ENABLE) && (SDSPI_DISK_ENABLE == 1)
+        case SDSPIDISK:
+            stat = sdspi_disk_initialize(pdrv);
+            return stat;
+#endif
 
-	switch (pdrv) {
-	case DEV_RAM :
-		result = RAM_disk_initialize();
-
-		// translate the reslut code here
-
-		return stat;
-
-	case DEV_MMC :
-		result = MMC_disk_initialize();
-
-		// translate the reslut code here
-
-		return stat;
-
-	case DEV_USB :
-		result = USB_disk_initialize();
-
-		// translate the reslut code here
-
-		return stat;
-	}
-	return STA_NOINIT;
+#if defined(NAND_DISK_ENABLE) && (NAND_DISK_ENABLE == 1)
+        case NANDDISK:
+            stat = nand_disk_initialize(pdrv);
+            return stat;
+#endif
+        default:
+            break;
+    }
+    return STA_NOINIT;
 }
 
 
@@ -97,45 +146,51 @@ DSTATUS disk_initialize (
 /*-----------------------------------------------------------------------*/
 
 DRESULT disk_read (
-	BYTE pdrv,		/* Physical drive nmuber to identify the drive */
-	BYTE *buff,		/* Data buffer to store read data */
-	LBA_t sector,	/* Start sector in LBA */
-	UINT count		/* Number of sectors to read */
+    BYTE pdrv,        /* Physical drive nmuber to identify the drive */
+    BYTE *buff,        /* Data buffer to store read data */
+    LBA_t sector,    /* Start sector in LBA */
+    UINT count        /* Number of sectors to read */
 )
 {
-	DRESULT res;
-	int result;
+    DRESULT res;
+    switch (pdrv)
+    {
+#if defined(RAM_DISK_ENABLE) && (RAM_DISK_ENABLE == 1)
+        case RAMDISK:
+            res = ram_disk_read(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(USB_DISK_ENABLE) && (USB_DISK_ENABLE == 1)
+        case USBDISK:
+            res = USB_HostMsdReadDisk(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(SD_DISK_ENABLE) && (SD_DISK_ENABLE == 1)
+        case SDDISK:
+            res = sd_disk_read(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(MMC_DISK_ENABLE) && (MMC_DISK_ENABLE == 1)
+        case MMCDISK:
+            res = mmc_disk_read(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(SDSPI_DISK_ENABLE) && (SDSPI_DISK_ENABLE == 1)
+        case SDSPIDISK:
+            res = sdspi_disk_read(pdrv, buff, sector, count);
+            return res;
+#endif
 
-	switch (pdrv) {
-	case DEV_RAM :
-		// translate the arguments here
+#if defined(NAND_DISK_ENABLE) && (NAND_DISK_ENABLE == 1)
+        case NANDDISK:
+            res = nand_disk_read(pdrv, buff, sector, count);
+            return res;
+#endif
+        default:
+            break;
+    }
 
-		result = RAM_disk_read(buff, sector, count);
-
-		// translate the reslut code here
-
-		return res;
-
-	case DEV_MMC :
-		// translate the arguments here
-
-		result = MMC_disk_read(buff, sector, count);
-
-		// translate the reslut code here
-
-		return res;
-
-	case DEV_USB :
-		// translate the arguments here
-
-		result = USB_disk_read(buff, sector, count);
-
-		// translate the reslut code here
-
-		return res;
-	}
-
-	return RES_PARERR;
+    return RES_PARERR;
 }
 
 
@@ -145,49 +200,52 @@ DRESULT disk_read (
 /*-----------------------------------------------------------------------*/
 
 #if FF_FS_READONLY == 0
-
 DRESULT disk_write (
-	BYTE pdrv,			/* Physical drive nmuber to identify the drive */
-	const BYTE *buff,	/* Data to be written */
-	LBA_t sector,		/* Start sector in LBA */
-	UINT count			/* Number of sectors to write */
+    BYTE pdrv,            /* Physical drive nmuber to identify the drive */
+    const BYTE *buff,    /* Data to be written */
+    LBA_t sector,        /* Start sector in LBA */
+    UINT count            /* Number of sectors to write */
 )
 {
-	DRESULT res;
-	int result;
+    DRESULT res;
+    switch (pdrv)
+    {
+#if defined(RAM_DISK_ENABLE) && (RAM_DISK_ENABLE == 1)
+        case RAMDISK:
+            res = ram_disk_write(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(USB_DISK_ENABLE) && (USB_DISK_ENABLE == 1)
+        case USBDISK:
+            res = USB_HostMsdWriteDisk(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(SD_DISK_ENABLE) && (SD_DISK_ENABLE == 1)
+        case SDDISK:
+            res = sd_disk_write(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(MMC_DISK_ENABLE) && (MMC_DISK_ENABLE == 1)
+        case MMCDISK:
+            res = mmc_disk_write(pdrv, buff, sector, count);
+            return res;
+#endif
+#if defined(SDSPI_DISK_ENABLE) && (SDSPI_DISK_ENABLE == 1)
+        case SDSPIDISK:
+            res = sdspi_disk_write(pdrv, buff, sector, count);
+            return res;
+#endif
 
-	switch (pdrv) {
-	case DEV_RAM :
-		// translate the arguments here
-
-		result = RAM_disk_write(buff, sector, count);
-
-		// translate the reslut code here
-
-		return res;
-
-	case DEV_MMC :
-		// translate the arguments here
-
-		result = MMC_disk_write(buff, sector, count);
-
-		// translate the reslut code here
-
-		return res;
-
-	case DEV_USB :
-		// translate the arguments here
-
-		result = USB_disk_write(buff, sector, count);
-
-		// translate the reslut code here
-
-		return res;
-	}
-
-	return RES_PARERR;
+#if defined(NAND_DISK_ENABLE) && (NAND_DISK_ENABLE == 1)
+        case NANDDISK:
+            res = nand_disk_write(pdrv, buff, sector, count);
+            return res;
+#endif
+        default:
+            break;
+    }
+    return RES_PARERR;
 }
-
 #endif
 
 
@@ -196,34 +254,48 @@ DRESULT disk_write (
 /*-----------------------------------------------------------------------*/
 
 DRESULT disk_ioctl (
-	BYTE pdrv,		/* Physical drive nmuber (0..) */
-	BYTE cmd,		/* Control code */
-	void *buff		/* Buffer to send/receive control data */
+    BYTE pdrv,        /* Physical drive nmuber (0..) */
+    BYTE cmd,        /* Control code */
+    void *buff        /* Buffer to send/receive control data */
 )
 {
-	DRESULT res;
-	int result;
+    DRESULT res;
+    switch (pdrv)
+    {
+#if defined(RAM_DISK_ENABLE) && (RAM_DISK_ENABLE == 1)
+        case RAMDISK:
+            res = ram_disk_ioctl(pdrv, cmd, buff);
+            return res;
+#endif
+#if defined(USB_DISK_ENABLE) && (USB_DISK_ENABLE == 1)
+        case USBDISK:
+            res = USB_HostMsdIoctlDisk(pdrv, cmd, buff);
+            return res;
+#endif
+#if defined(SD_DISK_ENABLE) && (SD_DISK_ENABLE == 1)
+        case SDDISK:
+            res = sd_disk_ioctl(pdrv, cmd, buff);
+            return res;
+#endif
+#if defined(MMC_DISK_ENABLE) && (MMC_DISK_ENABLE == 1)
+        case MMCDISK:
+            res = mmc_disk_ioctl(pdrv, cmd, buff);
+            return res;
+#endif
+#if defined(SDSPI_DISK_ENABLE) && (SDSPI_DISK_ENABLE == 1)
+        case SDSPIDISK:
+            res = sdspi_disk_ioctl(pdrv, cmd, buff);
+            return res;
+#endif
 
-	switch (pdrv) {
-	case DEV_RAM :
-
-		// Process of the command for the RAM drive
-
-		return res;
-
-	case DEV_MMC :
-
-		// Process of the command for the MMC/SD card
-
-		return res;
-
-	case DEV_USB :
-
-		// Process of the command the USB drive
-
-		return res;
-	}
-
-	return RES_PARERR;
+#if defined(NAND_DISK_ENABLE) && (NAND_DISK_ENABLE == 1)
+        case NANDDISK:
+            res = nand_disk_ioctl(pdrv, cmd, buff);
+            return res;
+#endif
+        default:
+            break;
+    }
+    return RES_PARERR;
 }
 

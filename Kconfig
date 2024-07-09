@@ -1,0 +1,537 @@
+menuconfig MCUX_COMPONENT_middleware.fatfs
+    bool "FatFs"
+    default n
+    help
+        This option will enable FatFs Middleware component
+
+    config MCUX_PRJSEG_middleware.fatfs.generated_config
+        bool "Generate FatFs configuration header"
+        depends on MCUX_COMPONENT_middleware.fatfs
+        default y
+        help
+            Generate the ffconf.h, otherwise users need to provide their
+            own ffconf.h.
+
+if MCUX_PRJSEG_middleware.fatfs.generated_config
+
+    menu "fatfs(ffconf_gen.h)"
+
+        menu "physical disk type"
+            config RAM_DISK_ENABLE
+                bool "RAM"
+                default y if MCUX_COMPONENT_middleware.fatfs.ram
+                default n
+                help
+                    No prefix in generated macro
+
+            config SD_DISK_ENABLE
+                bool "SD"
+                default y if MCUX_COMPONENT_middleware.fatfs.sd
+                default n
+                help
+                    No prefix in generated macro
+
+            config SDSPI_DISK_ENABLE
+                bool "SDSPI"
+                default y if MCUX_COMPONENT_middleware.fatfs.sdspi
+                default n
+                help
+                    No prefix in generated macro
+
+            config USB_DISK_ENABLE
+                bool "USB"
+                default y if MCUX_COMPONENT_middleware.fatfs.usb
+                default n
+                help
+                    No prefix in generated macro
+
+            config MMC_DISK_ENABLE
+                bool "MMC"
+                default y if MCUX_COMPONENT_middleware.fatfs.mmc
+                default n
+                help
+                    No prefix in generated macro
+
+            config NAND_DISK_ENABLE
+                bool "NAND"
+                default y if MCUX_COMPONENT_middleware.fatfs.nand
+                default n
+                help
+                    No prefix in generated macro
+        endmenu
+
+        config FFCONF_DEF
+            int
+            default 80286
+            help
+                No prefix in generated macro
+
+        #---------------------------------------------------------------------------
+        # Function Configurations
+        #---------------------------------------------------------------------------
+
+        config FF_FS_READONLY
+            bool "FF_FS_READONLY"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches read-only configuration. (0:Read/Write or 1:Read-only)
+#                Read-only configuration removes writing API functions, f_write(), f_sync(),
+#                f_unlink(), f_mkdir(), f_chmod(), f_rename(), f_truncate(), f_getfree()
+#                and optional writing functions as well.
+
+        config FF_FS_MINIMIZE
+            bool "FF_FS_MINIMIZE"
+            default n
+            help
+                No prefix in generated macro
+#                0: Basic functions are fully enabled.
+#                1: f_stat(), f_getfree(), f_unlink(), f_mkdir(), f_truncate() and f_rename()
+#                   are removed.
+#                2: f_opendir(), f_readdir() and f_closedir() are removed in addition to 1.
+#                3: f_lseek() function is removed in addition to 2.
+
+        config FF_USE_FIND
+            bool "FF_USE_FIND"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches filtered directory read functions, f_findfirst() and
+#                f_findnext(). (0:Disable, 1:Enable 2:Enable with matching altname[] too)
+
+        config FF_USE_MKFS
+            bool "FF_USE_MKFS"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches f_mkfs() function. (0:Disable or 1:Enable)
+
+        config FF_USE_FASTSEEK
+            bool "FF_USE_FASTSEEK"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches fast seek function. (0:Disable or 1:Enable)
+
+        config FF_USE_EXPAND
+            bool "FF_USE_EXPAND"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches f_expand function. (0:Disable or 1:Enable)
+
+        config FF_USE_CHMOD
+            bool "FF_USE_CHMOD"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches attribute manipulation functions, f_chmod() and f_utime().
+#                (0:Disable or 1:Enable) Also FF_FS_READONLY needs to be 0 to enable this option.
+
+        config FF_USE_LABEL
+            bool "FF_USE_LABEL"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches volume label functions, f_getlabel() and f_setlabel().
+#                (0:Disable or 1:Enable)
+
+        config FF_USE_FORWARD
+            bool "FF_USE_FORWARD"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches f_forward() function. (0:Disable or 1:Enable)
+
+        config FF_USE_STRFUNC
+            bool "FF_USE_STRFUNC"
+            default n
+            help
+                No prefix in generated macro
+
+        config FF_PRINT_LLI
+            bool "FF_PRINT_LLI"
+            default n
+            help
+                No prefix in generated macro
+
+        config FF_PRINT_FLOAT
+            bool "FF_PRINT_FLOAT"
+            default n
+            help
+                No prefix in generated macro
+
+        config FF_STRF_ENCODE
+            int "FF_STRF_ENCODE"
+            default 0
+            help
+                No prefix in generated macro
+#                FF_USE_STRFUNC switches string functions, f_gets(), f_putc(), f_puts() and
+#                f_printf().
+#                 0: Disable. FF_PRINT_LLI, FF_PRINT_FLOAT and FF_STRF_ENCODE have no effect.
+#                 1: Enable without LF-CRLF conversion.
+#                 2: Enable with LF-CRLF conversion.
+#                FF_PRINT_LLI = 1 makes f_printf() support long long argument and FF_PRINT_FLOAT = 1/2
+#                makes f_printf() support floating point argument. These features want C99 or later.
+#                When FF_LFN_UNICODE >= 1 with LFN enabled, string functions convert the character
+#                encoding in it. FF_STRF_ENCODE selects assumption of character encoding ON THE FILE
+#                to be read/written via those functions.
+#                 0: ANSI/OEM in current CP
+#                 1: Unicode in UTF-16LE
+#                 2: Unicode in UTF-16BE
+#                 3: Unicode in UTF-8
+
+        #---------------------------------------------------------------------------
+        # Locale and Namespace Configurations
+        #---------------------------------------------------------------------------
+
+        config FF_CODE_PAGE
+            int "FF_CODE_PAGE"
+            default 437
+            help
+                No prefix in generated macro
+#                This option specifies the OEM code page to be used on the target system.
+#                Incorrect code page setting can cause a file open failure.
+#                 437 - U.S.
+#                 720 - Arabic
+#                 737 - Greek
+#                 771 - KBL
+#                 775 - Baltic
+#                 850 - Latin 1
+#                 852 - Latin 2
+#                 855 - Cyrillic
+#                 857 - Turkish
+#                 860 - Portuguese
+#                 861 - Icelandic
+#                 862 - Hebrew
+#                 863 - Canadian French
+#                 864 - Arabic
+#                 865 - Nordic
+#                 866 - Russian
+#                 869 - Greek 2
+#                 932 - Japanese (DBCS)
+#                 936 - Simplified Chinese (DBCS)
+#                 949 - Korean (DBCS)
+#                 950 - Traditional Chinese (DBCS)
+#                   0 - Include all code pages above and configured by f_setcp()
+
+        config FF_USE_LFN
+            int "FF_USE_LFN"
+            default 0
+            help
+                No prefix in generated macro
+#                The FF_USE_LFN switches the support for LFN (long file name).
+#
+#                 0: Disable LFN. FF_MAX_LFN has no effect.
+#                 1: Enable LFN with static  working buffer on the BSS. Always NOT thread-safe.
+#                 2: Enable LFN with dynamic working buffer on the STACK.
+#                 3: Enable LFN with dynamic working buffer on the HEAP.
+#
+#                To enable the LFN, ffunicode.c needs to be added to the project. The LFN function
+#                requiers certain internal working buffer occupies (FF_MAX_LFN + 1) * 2 bytes and
+#                additional (FF_MAX_LFN + 44) / 15 * 32 bytes when exFAT is enabled.
+#                The FF_MAX_LFN defines size of the working buffer in UTF-16 code unit and it can
+#                be in range of 12 to 255. It is recommended to be set it 255 to fully support LFN
+#                specification.
+#                When use stack for the working buffer, take care on stack overflow. When use heap
+#                memory for the working buffer, memory management functions, ff_memalloc() and
+#                ff_memfree() exemplified in ffsystem.c, need to be added to the project.
+
+        config FF_MAX_LFN
+            int "FF_MAX_LFN"
+            default 255
+            help
+                No prefix in generated macro
+#                The FF_USE_LFN switches the support for LFN (long file name).
+#
+#                 0: Disable LFN. FF_MAX_LFN has no effect.
+#                 1: Enable LFN with static  working buffer on the BSS. Always NOT thread-safe.
+#                 2: Enable LFN with dynamic working buffer on the STACK.
+#                 3: Enable LFN with dynamic working buffer on the HEAP.
+#
+#                To enable the LFN, ffunicode.c needs to be added to the project. The LFN function
+#                requiers certain internal working buffer occupies (FF_MAX_LFN + 1) * 2 bytes and
+#                additional (FF_MAX_LFN + 44) / 15 * 32 bytes when exFAT is enabled.
+#                The FF_MAX_LFN defines size of the working buffer in UTF-16 code unit and it can
+#                be in range of 12 to 255. It is recommended to be set it 255 to fully support LFN
+#                specification.
+#                When use stack for the working buffer, take care on stack overflow. When use heap
+#                memory for the working buffer, memory management functions, ff_memalloc() and
+#                ff_memfree() exemplified in ffsystem.c, need to be added to the project.
+
+        config FF_LFN_UNICODE
+            int "FF_LFN_UNICODE"
+            default 0
+            help
+                No prefix in generated macro
+#                This option switches the character encoding on the API when LFN is enabled.
+#                 0: ANSI/OEM in current CP (TCHAR = char)
+#                 1: Unicode in UTF-16 (TCHAR = WCHAR)
+#                 2: Unicode in UTF-8 (TCHAR = char)
+#                 3: Unicode in UTF-32 (TCHAR = DWORD)
+#                Also behavior of string I/O functions will be affected by this option.
+#                When LFN is not enabled, this option has no effect.
+
+        config FF_LFN_BUF
+            int "FF_LFN_BUF"
+            default 255
+            help
+                No prefix in generated macro
+#                This set of options defines size of file name members in the FILINFO structure
+#                which is used to read out directory items. These values should be suffcient for
+#                the file names to read. The maximum possible length of the read file name depends
+#                on character encoding. When LFN is not enabled, these options have no effect.
+
+        config FF_SFN_BUF
+            int "FF_SFN_BUF"
+            default 12
+            help
+                No prefix in generated macro
+#                This set of options defines size of file name members in the FILINFO structure
+#                which is used to read out directory items. These values should be suffcient for
+#                the file names to read. The maximum possible length of the read file name depends
+#                on character encoding. When LFN is not enabled, these options have no effect.
+
+        config FF_FS_RPATH
+            int "FF_FS_RPATH"
+            default 2
+            help
+                No prefix in generated macro
+#                This option configures support for relative path.
+#                 0: Disable relative path and remove related functions.
+#                 1: Enable relative path. f_chdir() and f_chdrive() are available.
+#                 2: f_getcwd() function is available in addition to 1.
+
+        #---------------------------------------------------------------------------
+        # Drive/Volume Configurations
+        #---------------------------------------------------------------------------
+
+        config FF_VOLUMES
+            int "FF_VOLUMES"
+            default 2
+            help
+                No prefix in generated macro
+#                Number of volumes (logical drives) to be used. (1-10)
+
+        config FF_STR_VOLUME_ID
+            bool "FF_STR_VOLUME_ID"
+            default n
+            help
+                No prefix in generated macro
+
+        config FF_VOLUME_STRS
+            string "FF_VOLUME_STRS"
+            default "\"RAM\",\"NAND\",\"CF\",\"SD\",\"SD2\",\"USB\",\"USB2\",\"USB3\""
+            help
+                No prefix in generated macro
+#                FF_STR_VOLUME_ID switches support for volume ID in arbitrary strings.
+#                When FF_STR_VOLUME_ID is set to 1 or 2, arbitrary strings can be used as drive
+#                number in the path name. FF_VOLUME_STRS defines the volume ID strings for each
+#                logical drives. Number of items must not be less than FF_VOLUMES. Valid
+#                characters for the volume ID strings are A-Z, a-z and 0-9, however, they are
+#                compared in case-insensitive. If FF_STR_VOLUME_ID >= 1 and FF_VOLUME_STRS is
+#                not defined, a user defined volume string table is needed as:
+#                const char* VolumeStr[FF_VOLUMES] = {"ram","flash","sd","usb",...
+
+        config FF_MULTI_PARTITION
+            bool "FF_MULTI_PARTITION"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches support for multiple volumes on the physical drive.
+#                By default (0), each logical drive number is bound to the same physical drive
+#                number and only an FAT volume found on the physical drive will be mounted.
+#                When this function is enabled (1), each logical drive number can be bound to
+#                arbitrary physical drive and partition listed in the VolToPart[]. Also f_fdisk()
+#                function will be available.
+
+        config FF_MIN_SS
+            int "FF_MIN_SS"
+            default 512
+            help
+                No prefix in generated macro
+
+        config FF_MAX_SS
+            int "FF_MAX_SS"
+            default 512
+            help
+                No prefix in generated macro
+#                This set of options configures the range of sector size to be supported. (512,
+#                1024, 2048 or 4096) Always set both 512 for most systems, generic memory card and
+#                harddisk, but a larger value may be required for on-board flash memory and some
+#                type of optical media. When FF_MAX_SS is larger than FF_MIN_SS, FatFs is configured
+#                for variable sector size mode and disk_ioctl() function needs to implement
+#                GET_SECTOR_SIZE command.
+
+        config FF_LBA64
+            bool "FF_LBA64"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches support for 64-bit LBA. (0:Disable or 1:Enable)
+#                To enable the 64-bit LBA, also exFAT needs to be enabled. (FF_FS_EXFAT == 1)
+
+        config FF_MIN_GPT
+            hex "FF_MIN_GPT"
+            default 0x10000000
+            help
+                No prefix in generated macro
+#                Minimum number of sectors to switch GPT as partitioning format in f_mkfs and
+#                f_fdisk function. 0x100000000 max. This option has no effect when FF_LBA64 == 0.
+
+        config FF_USE_TRIM
+            bool "FF_USE_TRIM"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches support for ATA-TRIM. (0:Disable or 1:Enable)
+#                To enable Trim function, also CTRL_TRIM command should be implemented to the
+#                disk_ioctl() function.
+
+        #---------------------------------------------------------------------------
+        # System Configurations
+        #---------------------------------------------------------------------------
+
+        config FF_FS_TINY
+            bool "FF_FS_TINY"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches tiny buffer configuration. (0:Normal or 1:Tiny)
+#                At the tiny configuration, size of file object (FIL) is shrinked FF_MAX_SS bytes.
+#                Instead of private sector buffer eliminated from the file object, common sector
+#                buffer in the filesystem object (FATFS) is used for the file data transfer.
+
+        config FF_FS_EXFAT
+            bool "FF_FS_EXFAT"
+            default n
+            help
+                No prefix in generated macro
+#                This option switches support for exFAT filesystem. (0:Disable or 1:Enable)
+#                To enable exFAT, also LFN needs to be enabled. (FF_USE_LFN >= 1)
+#                Note that enabling exFAT discards ANSI C (C89) compatibility.
+
+        config FF_FS_NORTC
+            bool "FF_FS_NORTC"
+            default y
+            help
+                No prefix in generated macro
+
+        config FF_NORTC_MON
+            int "FF_NORTC_MON"
+            default 1
+            help
+                No prefix in generated macro
+
+        config FF_NORTC_MDAY
+            int "FF_NORTC_MDAY"
+            default 1
+            help
+                No prefix in generated macro
+
+        config FF_NORTC_YEAR
+            int "FF_NORTC_YEAR"
+            default 2024
+            help
+                No prefix in generated macro
+#                The option FF_FS_NORTC switches timestamp feature. If the system does not have
+#                an RTC or valid timestamp is not needed, set FF_FS_NORTC = 1 to disable the
+#                timestamp feature. Every object modified by FatFs will have a fixed timestamp
+#                defined by FF_NORTC_MON, FF_NORTC_MDAY and FF_NORTC_YEAR in local time.
+#                To enable timestamp function (FF_FS_NORTC = 0), get_fattime() function need to be
+#                added to the project to read current time form real-time clock. FF_NORTC_MON,
+#                FF_NORTC_MDAY and FF_NORTC_YEAR have no effect.
+#                These options have no effect in read-only configuration (FF_FS_READONLY = 1).
+
+        config FF_FS_NOFSINFO
+            int "FF_FS_NOFSINFO"
+            default 0
+            help
+                No prefix in generated macro
+#                If you need to know correct free space on the FAT32 volume, set bit 0 of this
+#                option, and f_getfree() function at the first time after volume mount will force
+#                a full FAT scan. Bit 1 controls the use of last allocated cluster number.
+#                bit0=0: Use free cluster count in the FSINFO if available.
+#                bit0=1: Do not trust free cluster count in the FSINFO.
+#                bit1=0: Use last allocated cluster number in the FSINFO if available.
+#                bit1=1: Do not trust last allocated cluster number in the FSINFO.
+
+        config FF_FS_LOCK
+            int "FF_FS_LOCK"
+            default 0
+            help
+                No prefix in generated macro
+#                The option FF_FS_LOCK switches file lock function to control duplicated file open
+#                and illegal operation to open objects. This option must be 0 when FF_FS_READONLY
+#                is 1.
+#                0:  Disable file lock function. To avoid volume corruption, application program
+#                    should avoid illegal open, remove and rename to the open objects.
+#                >0: Enable file lock function. The value defines how many files/sub-directories
+#                    can be opened simultaneously under file lock control. Note that the file
+#                    lock control is independent of re-entrancy.
+
+        config FF_FS_REENTRANT
+            bool "FF_FS_REENTRANT"
+            default n
+            help
+                No prefix in generated macro
+
+        config FF_FS_TIMEOUT
+            int "FF_FS_TIMEOUT"
+            default 1000
+            help
+                No prefix in generated macro
+    endmenu
+
+    config MCUX_COMPONENT_middleware.fatfs.template_mmc
+        bool
+
+    config MCUX_COMPONENT_middleware.fatfs.template_nand
+        bool
+
+    config MCUX_COMPONENT_middleware.fatfs.template_ram
+        bool
+
+    config MCUX_COMPONENT_middleware.fatfs.template_sd
+        bool
+
+    config MCUX_COMPONENT_middleware.fatfs.template_sdspi
+        bool
+
+    config MCUX_COMPONENT_middleware.fatfs.template_usb
+        bool
+endif
+
+if MCUX_COMPONENT_middleware.fatfs
+
+    config MCUX_COMPONENT_middleware.fatfs.ram
+        bool "middleware.fatfs.ram"
+        imply MCUX_COMPONENT_middleware.fatfs.template_ram
+
+    config MCUX_COMPONENT_middleware.fatfs.sd
+        bool "middleware.fatfs.sd"
+        select MCUX_COMPONENT_middleware.sdmmc.sd
+        imply MCUX_COMPONENT_middleware.fatfs.template_sd
+
+    config MCUX_COMPONENT_middleware.fatfs.sdspi
+        bool "middleware.fatfs.sdspi"
+        select MCUX_COMPONENT_middleware.sdmmc.sdspi
+        imply MCUX_COMPONENT_middleware.fatfs.template_sdspi
+
+    config MCUX_COMPONENT_middleware.fatfs.usb
+        bool "middleware.fatfs.usb"
+        select MCUX_COMPONENT_middleware.usb.host.stack
+        select MCUX_COMPONENT_middleware.usb.host.msd
+        imply MCUX_COMPONENT_middleware.fatfs.template_usb
+
+    config MCUX_COMPONENT_middleware.fatfs.mmc
+        bool "middleware.fatfs.mmc"
+        select MCUX_COMPONENT_middleware.sdmmc.mmc
+        imply MCUX_COMPONENT_middleware.fatfs.template_mmc
+
+    config MCUX_COMPONENT_middleware.fatfs.nand
+        bool "middleware.fatfs.nand"
+        select MCUX_COMPONENT_middleware.dhara
+        depends on MCUX_COMPONENT_component.flash_nand_semc || MCUX_COMPONENT_component.flash_nand_flexspi
+        imply MCUX_COMPONENT_middleware.fatfs.template_nand
+endif

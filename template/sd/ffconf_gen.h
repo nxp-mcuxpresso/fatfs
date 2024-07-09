@@ -1,8 +1,42 @@
+/*----------------------------------------------------------------------------/
+/  FatFs - Generic FAT Filesystem module  R0.15                               /
+/-----------------------------------------------------------------------------/
+/
+/ Copyright (C) 2022, ChaN, all right reserved.
+/
+/ FatFs module is an open source software. Redistribution and use of FatFs in
+/ source and binary forms, with or without modification, are permitted provided
+/ that the following condition is met:
+
+/ 1. Redistributions of source code must retain the above copyright notice,
+/    this condition and the following disclaimer.
+/
+/ This software is provided by the copyright holder and contributors "AS IS"
+/ and any warranties related to this software are DISCLAIMED.
+/ The copyright owner or contributors be NOT LIABLE for any damages caused
+/ by use of this software.
+/
+/----------------------------------------------------------------------------*/
+
+#ifndef _FFCONF_H_
+#define _FFCONF_H_
+
 /*---------------------------------------------------------------------------/
 /  Configurations of FatFs Module
 /---------------------------------------------------------------------------*/
 
 #define FFCONF_DEF	80286	/* Revision ID */
+/*---------------------------------------------------------------------------/
+/ MSDK adaptation configuration
+/---------------------------------------------------------------------------*/
+#define SD_DISK_ENABLE 1
+/* Available options are:
+/      RAM_DISK_ENABLE 1
+/      USB_DISK_ENABLE 1
+/      SD_DISK_ENABLE 1
+/      MMC_DISK_ENABLE 1
+/      SDSPI_DISK_ENABLE 1
+/      NAND_DISK_ENABLE 1 */
 
 /*---------------------------------------------------------------------------/
 / Function Configurations
@@ -30,7 +64,7 @@
 /  f_findnext(). (0:Disable, 1:Enable 2:Enable with matching altname[] too) */
 
 
-#define FF_USE_MKFS		0
+#define FF_USE_MKFS		1
 /* This option switches f_mkfs() function. (0:Disable or 1:Enable) */
 
 
@@ -57,9 +91,9 @@
 
 
 #define FF_USE_STRFUNC	0
-#define FF_PRINT_LLI	1
-#define FF_PRINT_FLOAT	1
-#define FF_STRF_ENCODE	3
+#define FF_PRINT_LLI	0
+#define FF_PRINT_FLOAT	0
+#define FF_STRF_ENCODE	0
 /* FF_USE_STRFUNC switches string functions, f_gets(), f_putc(), f_puts() and
 /  f_printf().
 /
@@ -84,7 +118,7 @@
 / Locale and Namespace Configurations
 /---------------------------------------------------------------------------*/
 
-#define FF_CODE_PAGE	932
+#define FF_CODE_PAGE	437
 /* This option specifies the OEM code page to be used on the target system.
 /  Incorrect code page setting can cause a file open failure.
 /
@@ -153,7 +187,7 @@
 /  on character encoding. When LFN is not enabled, these options have no effect. */
 
 
-#define FF_FS_RPATH		0
+#define FF_FS_RPATH		2
 /* This option configures support for relative path.
 /
 /   0: Disable relative path and remove related functions.
@@ -166,7 +200,7 @@
 / Drive/Volume Configurations
 /---------------------------------------------------------------------------*/
 
-#define FF_VOLUMES		1
+#define FF_VOLUMES		5
 /* Number of volumes (logical drives) to be used. (1-10) */
 
 
@@ -237,7 +271,7 @@
 /  Note that enabling exFAT discards ANSI C (C89) compatibility. */
 
 
-#define FF_FS_NORTC		0
+#define FF_FS_NORTC		1
 #define FF_NORTC_MON	1
 #define FF_NORTC_MDAY	1
 #define FF_NORTC_YEAR	2022
@@ -294,3 +328,5 @@
 
 
 /*--- End of configuration options ---*/
+
+#endif /* _FFCONF_H_ */
