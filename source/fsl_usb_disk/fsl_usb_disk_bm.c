@@ -383,10 +383,7 @@ DRESULT USB_HostMsdIoctlDisk(BYTE pdrv, BYTE cmd, void *buff)
                     address = (uint32_t)&s_UsbTransferBuffer[0];
                     address = (uint32_t)((usb_host_ufi_read_capacity_t *)(address))->blockLengthInBytes;
                     value = USB_LONG_FROM_BIG_ENDIAN_ADDRESS(((uint8_t *)address));
-                    ((uint8_t *)buff)[0] = ((uint8_t*)&value)[0];
-                    ((uint8_t *)buff)[1] = ((uint8_t*)&value)[1];
-                    ((uint8_t *)buff)[2] = ((uint8_t*)&value)[2];
-                    ((uint8_t *)buff)[3] = ((uint8_t*)&value)[3];
+                    *(WORD *)buff = (WORD)value;
                 }
             }
             break;

@@ -90,7 +90,7 @@ DRESULT ram_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
             return RES_OK;
             break;
         case GET_SECTOR_SIZE:
-            *(uint32_t *)buff = FSL_FF_RAMDISK_SECTOR_SIZE;
+            *(WORD *)buff = FSL_FF_RAMDISK_SECTOR_SIZE;
             return RES_OK;
             break;
         case CTRL_SYNC:

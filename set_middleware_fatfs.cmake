@@ -6,7 +6,7 @@ if (CONFIG_USE_middleware_fatfs)
 
 message("middleware_fatfs component is included from ${CMAKE_CURRENT_LIST_FILE}.")
 
-if((CONFIG_USE_middleware_fatfs_template_ram AND CONFIG_USE_middleware_fatfs_ram) OR (CONFIG_USE_middleware_fatfs_template_sd AND CONFIG_USE_middleware_fatfs_sd) OR (CONFIG_USE_middleware_fatfs_template_sdspi AND CONFIG_USE_middleware_fatfs_sdspi) OR (CONFIG_USE_middleware_fatfs_template_mmc AND CONFIG_USE_middleware_fatfs_mmc) OR (CONFIG_USE_middleware_fatfs_template_usb AND CONFIG_USE_middleware_fatfs_usb))
+if((CONFIG_USE_middleware_fatfs_template_ram AND CONFIG_USE_middleware_fatfs_ram) OR (CONFIG_USE_middleware_fatfs_template_sd AND CONFIG_USE_middleware_fatfs_sd) OR (CONFIG_USE_middleware_fatfs_template_mmc AND CONFIG_USE_middleware_fatfs_mmc) OR (CONFIG_USE_middleware_fatfs_template_usb AND CONFIG_USE_middleware_fatfs_usb))
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/./source/diskio.c
@@ -100,30 +100,6 @@ endif()
 endif()
 
 
-if (CONFIG_USE_middleware_fatfs_sdspi)
-# Add set(CONFIG_USE_middleware_fatfs_sdspi true) in config.cmake to use this component
-
-message("middleware_fatfs_sdspi component is included from ${CMAKE_CURRENT_LIST_FILE}.")
-
-if(CONFIG_USE_middleware_fatfs AND CONFIG_USE_middleware_fatfs_template_sdspi AND CONFIG_USE_middleware_sdmmc_sdspi AND CONFIG_USE_driver_common AND CONFIG_USE_driver_dspi AND CONFIG_USE_driver_gpio)
-
-target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_sdspi_disk/fsl_sdspi_disk.c
-)
-
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/./source/fsl_sdspi_disk
-)
-
-else()
-
-message(SEND_ERROR "middleware_fatfs_sdspi dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
-
-endif()
-
-endif()
-
-
 if (CONFIG_USE_middleware_fatfs_template_mmc)
 # Add set(CONFIG_USE_middleware_fatfs_template_mmc true) in config.cmake to use this component
 
@@ -172,24 +148,6 @@ add_config_file(${CMAKE_CURRENT_LIST_DIR}/./template/sd/ffconf.h ${CMAKE_CURRENT
 else()
 
 message(SEND_ERROR "middleware_fatfs_template_sd dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
-
-endif()
-
-endif()
-
-
-if (CONFIG_USE_middleware_fatfs_template_sdspi)
-# Add set(CONFIG_USE_middleware_fatfs_template_sdspi true) in config.cmake to use this component
-
-message("middleware_fatfs_template_sdspi component is included from ${CMAKE_CURRENT_LIST_FILE}.")
-
-if(CONFIG_USE_middleware_fatfs_sdspi)
-
-add_config_file(${CMAKE_CURRENT_LIST_DIR}/./template/sdspi/ffconf.h ${CMAKE_CURRENT_LIST_DIR}/./template/sdspi middleware_fatfs_template_sdspi)
-
-else()
-
-message(SEND_ERROR "middleware_fatfs_template_sdspi dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
 
 endif()
 

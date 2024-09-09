@@ -10,7 +10,7 @@
     <definition extID="middleware.baremetal.MCXN236"/>
     <definition extID="middleware.freertos-kernel.MCXN236"/>
   </externalDefinitions>
-  <ksdk id="MCUXpressoSDK216000_middleware_elm_chan_fatfs_MCXN236_manifest_v3_14" name="MCUXpressoSDK216000_middleware_elm_chan_fatfs_MCXN236_manifest_v3_14" version="2.16.000" revision="2.16.000"/>
+  <ksdk id="MCUXpressoSDK216100_middleware_elm_chan_fatfs_MCXN236_manifest_v3_14" name="MCUXpressoSDK216100_middleware_elm_chan_fatfs_MCXN236_manifest_v3_14" version="2.16.100" revision="2.16.100"/>
   <components>
     <component id="middleware.fatfs.MCXN236" name="fatfs" brief="FatFs" version="0.15.0" full_name="FAT File System stack" category="File System/FAT File System" user_visible="true" type="middleware" package_base_path=".././" project_base_path="fatfs">
       <dependencies>

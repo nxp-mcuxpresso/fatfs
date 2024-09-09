@@ -89,7 +89,7 @@ DRESULT mmc_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
         case GET_SECTOR_SIZE:
             if (buff)
             {
-                *(uint32_t *)buff = g_mmc.blockSize;
+                *(WORD *)buff = g_mmc.blockSize;
             }
             else
             {
