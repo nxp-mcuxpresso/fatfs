@@ -1,4 +1,7 @@
-# middleware.fatfs
+# Copyright 2024 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
 if (CONFIG_MCUX_COMPONENT_middleware.fatfs)
     mcux_add_include(
         INCLUDES source
@@ -209,5 +212,4 @@ if (CONFIG_MCUX_COMPONENT_middleware.fatfs.template_usb)
 endif()
 
 if (CONFIG_MCUX_PRJSEG_middleware.fatfs.generated_config)
-
 endif ()
