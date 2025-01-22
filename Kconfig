@@ -1,3 +1,6 @@
+# Copyright 2024-2025 NXP
+# FatFs License, see LICENSE.txt
+
 menuconfig MCUX_COMPONENT_middleware.fatfs
     bool "FatFs"
     default n
@@ -505,32 +508,32 @@ endif
 if MCUX_COMPONENT_middleware.fatfs
 
     config MCUX_COMPONENT_middleware.fatfs.ram
-        bool "middleware.fatfs.ram"
+        bool "ram"
         imply MCUX_COMPONENT_middleware.fatfs.template_ram
 
     config MCUX_COMPONENT_middleware.fatfs.sd
-        bool "middleware.fatfs.sd"
+        bool "sd"
         select MCUX_COMPONENT_middleware.sdmmc.sd
         imply MCUX_COMPONENT_middleware.fatfs.template_sd
 
     config MCUX_COMPONENT_middleware.fatfs.sdspi
-        bool "middleware.fatfs.sdspi"
+        bool "sdspi"
         select MCUX_COMPONENT_middleware.sdmmc.sdspi
         imply MCUX_COMPONENT_middleware.fatfs.template_sdspi
 
     config MCUX_COMPONENT_middleware.fatfs.usb
-        bool "middleware.fatfs.usb"
+        bool "usb"
         select MCUX_COMPONENT_middleware.usb.host.stack
         select MCUX_COMPONENT_middleware.usb.host.msd
         imply MCUX_COMPONENT_middleware.fatfs.template_usb
 
     config MCUX_COMPONENT_middleware.fatfs.mmc
-        bool "middleware.fatfs.mmc"
+        bool "mmc"
         select MCUX_COMPONENT_middleware.sdmmc.mmc
         imply MCUX_COMPONENT_middleware.fatfs.template_mmc
 
     config MCUX_COMPONENT_middleware.fatfs.nand
-        bool "middleware.fatfs.nand"
+        bool "nand"
         select MCUX_COMPONENT_middleware.dhara
         depends on MCUX_COMPONENT_component.flash_nand_semc || MCUX_COMPONENT_component.flash_nand_flexspi
         imply MCUX_COMPONENT_middleware.fatfs.template_nand
