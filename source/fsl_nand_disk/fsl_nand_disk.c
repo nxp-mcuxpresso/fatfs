@@ -108,7 +108,7 @@ DRESULT nand_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
         case GET_SECTOR_SIZE:
             if (buff)
             {
-                *(WORD *)buff = 1 << EXAMPLE_DHARA_NAND_LOG2_PAGE_SIZE;
+                *(WORD *)buff = (WORD)(1 << EXAMPLE_DHARA_NAND_LOG2_PAGE_SIZE);
             }
             else
             {

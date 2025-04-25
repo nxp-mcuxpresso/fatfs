@@ -57,6 +57,14 @@ DRESULT ram_disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count)
     {
         return RES_PARERR;
     }
+
+    /* Validate that sector + count stays within disk_space bounds (overflow-safe) */
+    if ((sector >= (sizeof(disk_space) / FSL_FF_RAMDISK_SECTOR_SIZE)) ||
+        (count > (sizeof(disk_space) / FSL_FF_RAMDISK_SECTOR_SIZE) - sector))
+    {
+        return RES_PARERR;
+    }
+
     memcpy(buff, disk_space + sector * FSL_FF_RAMDISK_SECTOR_SIZE, FSL_FF_RAMDISK_SECTOR_SIZE * count);
     return RES_OK;
 }
@@ -70,6 +78,14 @@ DRESULT ram_disk_write(BYTE pdrv, const BYTE* buff, LBA_t sector, UINT count)
     {
         return RES_PARERR;
     }
+
+    /* Validate that sector + count stays within disk_space bounds (overflow-safe) */
+    if ((sector >= (sizeof(disk_space) / FSL_FF_RAMDISK_SECTOR_SIZE)) ||
+        (count > (sizeof(disk_space) / FSL_FF_RAMDISK_SECTOR_SIZE) - sector))
+    {
+        return RES_PARERR;
+    }
+
     memcpy(disk_space + sector * FSL_FF_RAMDISK_SECTOR_SIZE, buff, FSL_FF_RAMDISK_SECTOR_SIZE * count);
     return RES_OK;
 }

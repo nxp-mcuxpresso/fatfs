@@ -7,6 +7,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <stdint.h>
 #include "ffconf.h"
 /* This fatfs subcomponent is disabled by default
  * To enable it, define following macro in ffconf.h */
@@ -100,7 +101,7 @@ DSTATUS USB_HostMsdInitializeDisk(BYTE pdrv)
         USB_HostControllerTaskFunction(g_HostHandle);
     }
 
-    /*request sense */
+    /* request sense */
     ufiIng = 1;
     if (g_UsbFatfsClassHandle == NULL)
     {
@@ -138,6 +139,12 @@ DSTATUS USB_HostMsdInitializeDisk(BYTE pdrv)
             address = (uint32_t)&s_UsbTransferBuffer[0];
             address = (uint32_t)((usb_host_ufi_read_capacity_t *)(address))->blockLengthInBytes;
             s_FatfsSectorSize = USB_LONG_FROM_BIG_ENDIAN_ADDRESS(((uint8_t *)address));
+
+            /* Validate sector size: must be non-zero and within FatFs maximum */
+            if ((s_FatfsSectorSize == 0U) || (s_FatfsSectorSize > FF_MAX_SS))
+            {
+                return STA_NOINIT;
+            }
         }
         else
         {
@@ -198,12 +205,21 @@ DRESULT USB_HostMsdReadDisk(BYTE pdrv, BYTE *buff, LBA_t sector, UINT count)
         while (retry--)
         {
             ufiIng = 1;
+
             if (g_UsbFatfsClassHandle == NULL)
             {
                 return RES_ERROR;
             }
+
+            /* Check for potential overflow before computing transfer length */
+            if ((s_FatfsSectorSize == 0U) || (sectorCount > UINT32_MAX / s_FatfsSectorSize))
+            {
+                return RES_ERROR;
+            }
+
             status = USB_HostMsdRead10(g_UsbFatfsClassHandle, 0, sectorIndex, (uint8_t *)transferBuf,
                                        (uint32_t)(s_FatfsSectorSize * sectorCount), sectorCount, USB_HostMsdUfiCallback, NULL);
+
             if (status != kStatus_USB_Success)
             {
                 fatfs_code = RES_ERROR;
@@ -293,6 +309,13 @@ DRESULT USB_HostMsdWriteDisk(BYTE pdrv, const BYTE *buff, LBA_t sector, UINT cou
             {
                 return RES_ERROR;
             }
+
+            /* Check for potential overflow before computing transfer length */
+            if ((s_FatfsSectorSize == 0U) || (sectorCount > UINT32_MAX / s_FatfsSectorSize))
+            {
+                return RES_ERROR;
+            }
+
             status = USB_HostMsdWrite10(g_UsbFatfsClassHandle, 0, sectorIndex, (uint8_t *)transferBuf,
                                         (uint32_t)(s_FatfsSectorSize * sectorCount), sectorCount, USB_HostMsdUfiCallback, NULL);
             if (status != kStatus_USB_Success)
@@ -383,10 +406,7 @@ DRESULT USB_HostMsdIoctlDisk(BYTE pdrv, BYTE cmd, void *buff)
                     address = (uint32_t)&s_UsbTransferBuffer[0];
                     address = (uint32_t)((usb_host_ufi_read_capacity_t *)(address))->blockLengthInBytes;
                     value = USB_LONG_FROM_BIG_ENDIAN_ADDRESS(((uint8_t *)address));
-                    ((uint8_t *)buff)[0] = ((uint8_t*)&value)[0];
-                    ((uint8_t *)buff)[1] = ((uint8_t*)&value)[1];
-                    ((uint8_t *)buff)[2] = ((uint8_t*)&value)[2];
-                    ((uint8_t *)buff)[3] = ((uint8_t*)&value)[3];
+                    *(WORD *)buff = (WORD)value;
                 }
             }
             break;
