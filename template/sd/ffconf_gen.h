@@ -18,8 +18,8 @@
 /
 /----------------------------------------------------------------------------*/
 
-#ifndef _FFCONF_H_
-#define _FFCONF_H_
+#ifndef _FFCONF_GEN_H_
+#define _FFCONF_GEN_H_
 
 /*---------------------------------------------------------------------------/
 /  Configurations of FatFs Module
@@ -329,4 +329,4 @@
 
 /*--- End of configuration options ---*/
 
-#endif /* _FFCONF_H_ */
+#endif /* _FFCONF_GEN_H_ */
