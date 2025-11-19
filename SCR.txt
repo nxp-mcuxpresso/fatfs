@@ -1,5 +1,5 @@
 Name: fatfs
-Version: 0.15
+Version: 0.16
 Outgoing License: FatFs License
 License File: LICENSE.txt
 Format: source code

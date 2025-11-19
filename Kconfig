@@ -65,7 +65,7 @@ if MCUX_PRJSEG_middleware.fatfs.generated_config
 
         config FFCONF_DEF
             int
-            default 80286
+            default 80386
             help
                 No prefix in generated macro
 

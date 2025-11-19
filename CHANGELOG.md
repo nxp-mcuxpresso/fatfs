@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+## [R0.16_rev0]
+- Upgraded to version 0.16
+- Applied patch https://elm-chan.org/fsw/ff/patch/ff16p1.diff
+- Applied patch https://elm-chan.org/fsw/ff/patch/ffunicode.zip
+
 ## [R0.15_rev0]
 - Upgraded to version 0.15
 - Applied patches from http://elm-chan.org/fsw/ff/patches.html
