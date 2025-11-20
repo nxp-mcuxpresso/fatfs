@@ -10505,7 +10505,9 @@ static WCHAR oem2uni_dbcs (	/* Returns in UTF-16, zero on error */
 	WORD cp					/* Code page */
 )
 {
+#if FF_CODE_PAGE == 932 || FF_CODE_PAGE == 936 || FF_CODE_PAGE == 949 || FF_CODE_PAGE == 950 || FF_CODE_PAGE == 0
 	BYTE hb = oem >> 8, lb = oem & 0xFF;	/* 1st byte and 2nd byte */
+#endif
 	UINT i;
 	WCHAR uni = 0;
 
@@ -10619,7 +10621,9 @@ static WCHAR uni2oem_dbcs (	/* Returns in OEM code, zero on error */
 	WORD cp					/* Code page */
 )
 {
+#if FF_CODE_PAGE == 936 || FF_CODE_PAGE == 950 || FF_CODE_PAGE == 0
 	BYTE hb = (WORD)uni >> 8, lb = uni & 0xFF;
+#endif
 	UINT i;
 	WCHAR oem = 0;
 #if FF_CODE_PAGE == 932 || FF_CODE_PAGE == 949 || FF_CODE_PAGE == 0
