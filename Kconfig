@@ -1,4 +1,4 @@
-# Copyright 2024-2025 NXP
+# Copyright 2024-2026 NXP
 # FatFs License, see LICENSE.txt
 
 menuconfig MCUX_COMPONENT_middleware.fatfs
@@ -535,6 +535,6 @@ if MCUX_COMPONENT_middleware.fatfs
     config MCUX_COMPONENT_middleware.fatfs.nand
         bool "nand"
         select MCUX_COMPONENT_middleware.dhara
-        depends on MCUX_COMPONENT_component.flash_nand_semc || MCUX_COMPONENT_component.flash_nand_flexspi
+        depends on MCUX_COMPONENT_component.flash_nand_semc || MCUX_COMPONENT_component.flash_nand_flexspi || MCUX_COMPONENT_component.flash_nand_xspi
         imply MCUX_COMPONENT_middleware.fatfs.template_nand
 endif
