@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2015, Freescale Semiconductor, Inc.
- * Copyright 2016-2020 NXP
+ * Copyright 2016-2026 NXP
  * All rights reserved.
  *
  *
@@ -89,7 +89,14 @@ DRESULT mmc_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
         case GET_SECTOR_SIZE:
             if (buff)
             {
-                *(WORD *)buff = (WORD)g_mmc.blockSize;
+                if (g_mmc.blockSize <= (uint32_t)0xFFFFU)
+                {
+                    *(WORD *)buff = (WORD)g_mmc.blockSize;
+                }
+                else
+                {
+                    res = RES_PARERR;
+                }
             }
             else
             {
