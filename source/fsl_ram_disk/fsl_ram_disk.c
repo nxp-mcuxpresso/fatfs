@@ -65,7 +65,7 @@ DRESULT ram_disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count)
         return RES_PARERR;
     }
 
-    memcpy(buff, disk_space + sector * FSL_FF_RAMDISK_SECTOR_SIZE, FSL_FF_RAMDISK_SECTOR_SIZE * count);
+    memcpy(buff, disk_space + (size_t)sector * FSL_FF_RAMDISK_SECTOR_SIZE, FSL_FF_RAMDISK_SECTOR_SIZE * (size_t)count);
     return RES_OK;
 }
 
@@ -86,7 +86,7 @@ DRESULT ram_disk_write(BYTE pdrv, const BYTE* buff, LBA_t sector, UINT count)
         return RES_PARERR;
     }
 
-    memcpy(disk_space + sector * FSL_FF_RAMDISK_SECTOR_SIZE, buff, FSL_FF_RAMDISK_SECTOR_SIZE * count);
+    memcpy(disk_space + (size_t)sector * FSL_FF_RAMDISK_SECTOR_SIZE, buff, FSL_FF_RAMDISK_SECTOR_SIZE * (size_t)count);
     return RES_OK;
 }
 
