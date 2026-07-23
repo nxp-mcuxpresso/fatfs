@@ -235,14 +235,18 @@ DRESULT USB_HostMsdReadDisk(BYTE pdrv, BYTE *buff, LBA_t sector, UINT count)
     (defined(DATA_SECTION_IS_CACHEABLE) && (DATA_SECTION_IS_CACHEABLE))
 #if (defined(USB_HOST_CONFIG_BUFFER_PROPERTY_CACHEABLE) && (USB_HOST_CONFIG_BUFFER_PROPERTY_CACHEABLE))
         if ((uint32_t)transferBuf == (uint32_t)&s_UsbTransferBuffer[0])
-#endif
-        {
-            memcpy(buff + index * s_FatfsSectorSize, s_UsbTransferBuffer, s_FatfsSectorSize);
-        }
-    }
-#endif
-    return fatfs_code;
-}
+ #endif
+         {
+            if (s_FatfsSectorSize > sizeof(s_UsbTransferBuffer))
+            {
+                return RES_ERROR;
+            }
+            memcpy(buff + (size_t)index * s_FatfsSectorSize, s_UsbTransferBuffer, s_FatfsSectorSize);
+         }
+     }
+ #endif
+     return fatfs_code;
+ }
 
 DRESULT USB_HostMsdWriteDisk(BYTE pdrv, const BYTE *buff, LBA_t sector, UINT count)
 {
@@ -291,7 +295,11 @@ DRESULT USB_HostMsdWriteDisk(BYTE pdrv, const BYTE *buff, LBA_t sector, UINT cou
         if ((uint32_t)transferBuf == (uint32_t)&s_UsbTransferBuffer[0])
 #endif
         {
-            memcpy(s_UsbTransferBuffer, buff + index * s_FatfsSectorSize, s_FatfsSectorSize);
+            if (s_FatfsSectorSize > sizeof(s_UsbTransferBuffer))
+            {
+                return RES_ERROR;
+            }
+            memcpy(s_UsbTransferBuffer, buff + (size_t)index * s_FatfsSectorSize, s_FatfsSectorSize);
         }
 #else
         transferBuf = buff;
@@ -401,6 +409,10 @@ DRESULT USB_HostMsdIoctlDisk(BYTE pdrv, BYTE cmd, void *buff)
                     address = (uint32_t)&s_UsbTransferBuffer[0];
                     address = (uint32_t)((usb_host_ufi_read_capacity_t *)(address))->blockLengthInBytes;
                     value = USB_LONG_FROM_BIG_ENDIAN_ADDRESS(((uint8_t *)address));
+                    if (value > 0xFFFFU)
+                    {
+                        return RES_ERROR;
+                    }
                     *(WORD *)buff = (WORD)value;
                 }
             }
