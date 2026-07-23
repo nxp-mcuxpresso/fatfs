@@ -89,7 +89,14 @@ DRESULT sd_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
         case GET_SECTOR_SIZE:
             if (buff)
             {
-                *(WORD *)buff = (WORD)g_sd.blockSize;
+                if (g_sd.blockSize <= (uint32_t)0xFFFFU)
+                {
+                    *(WORD *)buff = (WORD)g_sd.blockSize;
+                }
+                else
+                {
+                    result = RES_PARERR;
+                }
             }
             else
             {
