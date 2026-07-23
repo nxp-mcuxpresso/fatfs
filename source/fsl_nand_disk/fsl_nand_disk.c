@@ -108,7 +108,7 @@ DRESULT nand_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
         case GET_SECTOR_SIZE:
             if (buff)
             {
-                *(WORD *)buff = (WORD)(1 << EXAMPLE_DHARA_NAND_LOG2_PAGE_SIZE);
+                *(WORD *)buff = (WORD)((1U << EXAMPLE_DHARA_NAND_LOG2_PAGE_SIZE) & 0xFFFFU);
             }
             else
             {
@@ -118,7 +118,7 @@ DRESULT nand_disk_ioctl(BYTE pdrv, BYTE cmd, void* buff)
         case GET_BLOCK_SIZE:
             if (buff)
             {
-                *(uint32_t *)buff = 1 << EXAMPLE_DHARA_NAND_LOG2_PAGE_PER_BLOCK;
+                *(uint32_t *)buff = 1U << EXAMPLE_DHARA_NAND_LOG2_PAGE_PER_BLOCK;
             }
             else
             {
