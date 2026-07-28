@@ -186,6 +186,11 @@ DRESULT USB_HostMsdReadDisk(BYTE pdrv, BYTE *buff, LBA_t sector, UINT count)
         transferBuf = &s_UsbTransferBuffer[0];
         sectorCount = 1;
     }
+    /* Guard against sector + index unsigned wrap */
+    if ((count > 1U) && ((uint32_t)(sector) > UINT32_MAX - (count - 1U)))
+    {
+        return RES_PARERR;
+    }
     for (index = 0; index < count; ++index)
     {
         sectorIndex = sector + index;
@@ -287,6 +292,11 @@ DRESULT USB_HostMsdWriteDisk(BYTE pdrv, const BYTE *buff, LBA_t sector, UINT cou
     {
         transferBuf = (const uint8_t *)&s_UsbTransferBuffer[0];
         sectorCount = 1;
+    }
+    /* Guard against sector + index unsigned wrap */
+    if ((count > 1U) && ((uint32_t)(sector) > UINT32_MAX - (count - 1U)))
+    {
+        return RES_PARERR;
     }
     for (index = 0; index < count; ++index)
     {
