@@ -2,13 +2,13 @@
   "SPDXID": "SPDXRef-DOCUMENT",
   "spdxVersion": "SPDX-2.3",
   "creationInfo": {
-    "created": "2026-01-08T03:43:45Z",
+    "created": "2026-11-10T02:31:27Z",
     "creators": [
       "Organization: NXP"
     ],
-    "licenseListVersion": "3.26"
+    "licenseListVersion": "3.28"
   },
-  "name": "fatfs-v26.03.00-pvw1",
+  "name": "fatfs-v26.12.00",
   "dataLicense": "CC0-1.0",
   "hasExtractedLicensingInfos": [
     {
@@ -17,12 +17,12 @@
       "extractedText": "FatFs License\n=============\n\nFatFs module is a generic FAT file system module for small embedded systems. This\nis a free software that opened for education, research and commercial\ndevelopments under license policy of following trems.\n\nCopyright (C) 2013, ChaN, all right reserved.\n\n  * The FatFs module is a free software and there is NO WARRANTY.\n\n  *  No restriction on use. You can use, modify and redistribute it for personal,\n    non-profit or commercial products UNDER YOUR RESPONSIBILITY.\n\n  * Redistributions of source code must retain the above copyright notice."
     }
   ],
-  "documentNamespace": "https://nxp.com/spdx/a18789af-315f-45f7-a251-64f40f2fe963",
+  "documentNamespace": "https://nxp.com/spdx/ee038dbf-9d46-42ad-8c57-6821bda413ec",
   "packages": [
     {
-      "SPDXID": "SPDXRef-package-a18789af-315f-45f7-a251-64f40f2fe963",
+      "SPDXID": "SPDXRef-package-ee038dbf-9d46-42ad-8c57-6821bda413ec",
       "name": "fatfs",
-      "versionInfo": "v26.03.00-pvw1",
+      "versionInfo": "v26.12.00",
       "licenseConcluded": "(LicenseRef-e5b7758e-198f-4ef0-a1c0-449099001fd5)",
       "licenseDeclared": "(LicenseRef-e5b7758e-198f-4ef0-a1c0-449099001fd5)",
       "downloadLocation": "https://github.com/nxp-mcuxpresso/fatfs",
@@ -37,10 +37,16 @@
       "versionInfo": "R0.16",
       "licenseConcluded": "LicenseRef-e5b7758e-198f-4ef0-a1c0-449099001fd5",
       "licenseDeclared": "LicenseRef-e5b7758e-198f-4ef0-a1c0-449099001fd5",
-      "downloadLocation": "https://elm-chan.org/fsw/ff/archives.html",
-      "originator": "Organization: FatFs Module",
+      "downloadLocation": "https://www.elm-chan.org/fsw/ff/arc/ff16.zip",
+      "originator": "Organization: unknown",
       "supplier": "NOASSERTION",
-      "externalRefs": [],
+      "externalRefs": [
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:elm-chan:fatfs:0.16:*:*:*:*:*:*:*",
+          "referenceType": "cpe23Type"
+        }
+      ],
       "filesAnalyzed": false
     }
   ],
@@ -48,10 +54,10 @@
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relationshipType": "DESCRIBES",
-      "relatedSpdxElement": "SPDXRef-package-a18789af-315f-45f7-a251-64f40f2fe963"
+      "relatedSpdxElement": "SPDXRef-package-ee038dbf-9d46-42ad-8c57-6821bda413ec"
     },
     {
-      "spdxElementId": "SPDXRef-package-a18789af-315f-45f7-a251-64f40f2fe963",
+      "spdxElementId": "SPDXRef-package-ee038dbf-9d46-42ad-8c57-6821bda413ec",
       "relationshipType": "CONTAINS",
       "relatedSpdxElement": "SPDXRef-package-26133453-b9a8-49d0-b454-c28ac915a5c6"
     }
